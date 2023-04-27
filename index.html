@@ -3,94 +3,55 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオサイト</title>
-    <style>
-      /* サイト全体の背景色を指定 */
-      body {
-        background-color: #f8f8f8;
-      }
-
-      /* ヘッダーのスタイルを指定 */
-      header {
-        background-color: #fff;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-      }
-
-      /* ナビゲーションバーのスタイルを指定 */
-      nav ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: space-around;
-      }
-
-      nav li {
-        margin: 0 10px;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      /* セクションのスタイルを指定 */
-      section {
-        padding: 40px;
-        margin: 40px 0;
-        background-color: #fff;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      section h2 {
-        margin-top: 0;
-        font-size: 32px;
-      }
-
-      section h3 {
-        margin-top: 0;
-        font-size: 24px;
-      }
-
-      section p {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-    </style>
+    <title>シンプルなWebページ</title>
+    <link rel="stylesheet" href="https://unpkg.com/system.css/dist/system.min.css">
   </head>
   <body>
-    <header>
-      <h1>ポートフォリオサイト</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">自己紹介</a></li>
-          <li><a href="#work">制作物</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-        </ul>
-      </nav>
+    <header class="bg-primary text-white p-3">
+      <h1>シンプルなWebページ</h1>
     </header>
-    <main>
-      <section id="about">
-        <h2>自己紹介</h2>
-        <p>ここに自己紹介を書いてください。</p>
+    <main class="container my-3">
+      <section>
+        <h2 class="text-center my-4">サービス紹介</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h3 class="h5 mb-3">サービス1</h3>
+              <p>ここにサービス1の説明を書いてください。</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h3 class="h5 mb-3">サービス2</h3>
+              <p>ここにサービス2の説明を書いてください。</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h3 class="h5 mb-3">サービス3</h3>
+              <p>ここにサービス3の説明を書いてください。</p>
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="work">
-        <h2>制作物</h2>
-        <ul>
-          <li>
-            <h3>制作物1</h3>
-            <p>ここに制作物1の説明を書いてください。</p>
-          </li>
-          <li>
-            <h3>制作物2</h3>
-            <p>ここに制作物2の説明を書いてください。</p>
-          </li>
-          <li>
-            <h3>制作物3</h3>
-            <p>ここに制作物3の説明を書いてください。</p>
-          </li>
-        </ul>
-      </
+      <section class="mt-5">
+        <h2 class="text-center my-4">お問い合わせ</h2>
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">お名前</label>
+            <input type="text" class="form-control" id="name" placeholder="お名前を入力してください">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">メールアドレス</label>
+            <input type="email" class="form-control" id="email" placeholder="メールアドレスを入力してください">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">お問い合わせ内容</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="お問い合わせ内容を入力してください"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">送信する</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
