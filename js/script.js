@@ -1,4 +1,17 @@
 $(function () {
+  $(document).ready(function() {
+    var fontUrl = 'font/NuAnkoMochi-v1.0.0-20200104/Nuあんこもち/NuAnkoMochi-Reg.otf';
+    var fontName = 'MyFont';
+  
+    var fontFace = '@font-face {' +
+      'font-family: "' + fontName + '";' +
+      'src: url("' + fontUrl + '") format("truetype");' +
+    '}';
+  
+    $('head').append('<style>' + fontFace + '</style>');
+  
+    $('body').css('font-family', '"' + fontName + '", sans-serif');
+  });  
 
   //ページ内スクロール
   var navHeight = $(".header").outerHeight();
@@ -16,5 +29,4 @@ $(function () {
     $("body,html").animate({ scrollTop: 0, }, 300);
     return false;
   });
-
 });
