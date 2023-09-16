@@ -52,12 +52,12 @@
           <!-- <p class="mv-subtitle">PORTFOLIO</p> -->
           <p class="mv-text">
             <div class="nes-container with-title is-lefted">
-              <p class="title">KANADE</p>
-              <p>HELLO WORLD! WELLCOME TO MY PORTFOLIO SITE.</p>
-              <p>WOULD YOU LIKE TO SEE IT MORE?</p>
+              <p class="title">かなで</p>
+              <p>HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
+              <p>よかったらみていってください。</p>
             </div>
             <br>
-            <div class="nes-container with-title">
+            <!-- <div class="nes-container with-title">
               <label>
                 <input type="radio" class="nes-radio" name="answer" checked />
                 <span>YES</span>
@@ -67,7 +67,7 @@
                 <input type="radio" class="nes-radio" name="answer" />
                 <span>NO</span>
               </label>
-            </div>
+            </div> -->
           </p>
         </div>
       </div>
@@ -78,31 +78,80 @@
         <div class="container">
           <h2 class="title">WORKS</h2>
           <div class="works-list">
-            <a class="works-item" href="https://github.com/kanade0525/linebot_for_splatoon3">
-              <div class="works-img"><img src="img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_427079_b5edcb10-2f1c-66fc-3b7a-2151047d7460.avif" alt="" /></div>
+            <!-- 1 -->
+            <a class="works-item" onclick="document.getElementById('dialog1').showModal();">
+              <div class="works-img">
+                <img src="img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_427079_b5edcb10-2f1c-66fc-3b7a-2151047d7460.avif" alt="" />
+              </div>
               <p class="works-name">スプラトゥーン3のスケジュール情報を定期的にLINEで通知できるようにした</p>
               <p class="works-info">AWS Lambda × Ruby × LINE messaging API</p>
             </a>
-            <a class="works-item" href="https://splibillo.firebaseapp.com/">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
+            <dialog class="nes-dialog" id="dialog1">
+              <form method="dialog">
+                <p class="title">スプラトゥーン3のスケジュール情報を定期的にLINEで通知できるようにした</p>
+                <div class="nes-dialog-container-wrapper">
+                  <div class="nes-container with-title is-lefted">
+                    <p class="title">AWS Lambda × Ruby × LINE messaging API</p>
+                    <div class="dialog-img-wrapper">
+                      <img src="img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_427079_b5edcb10-2f1c-66fc-3b7a-2151047d7460.avif" alt="" />
+                    </div>
+                  </div>
+                  <div class="nes-container">
+                    hi
+                  </div>
+                </div>
+                <menu class="dialog-menu">
+                  <a class="nes-btn" href="https://qiita.com/a16111k/items/1d156db0656559cdb27a" target="_blank">リンクを開く</a>
+                  <button class="nes-btn">閉じる</button>
+                </menu>
+              </form>
+            </dialog>
+            <!-- 2 -->
+            <a class="works-item" onclick="document.getElementById('dialog2').showModal();">
+              <div class="works-img">
+                <img src="https://pbs.twimg.com/media/F5oa__4bUAA5yru?format=jpg&name=large" alt="" />
+              </div>
               <p class="works-name">割り勘電卓アプリ-SPLIBILLOR-</p>
-              <p class="works-info">JavaScript × firebase</p>
+              <p class="works-info">在学中に独学で作成</p>
             </a>
-            <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Design</p>
+            <dialog class="nes-dialog" id="dialog2">
+              <form method="dialog">
+                <p class="title">割り勘電卓アプリ-SPLIBILLOR-</p>
+                <div class="nes-container with-title is-lefted">
+                  <p class="title">在学中に独学で作成</p>
+                  <div class="dialog-img-wrapper">
+                    <img src="https://pbs.twimg.com/media/F5oa__4bUAA5yru?format=jpg&name=large" alt="" />
+                  </div>
+                </div>
+                <menu class="dialog-menu">
+                  <a class="nes-btn" href="リンク" target="_blank">リンクを開く</a>
+                  <button class="nes-btn">閉じる</button>
+                </menu>
+              </form>
+            </dialog>
+            <!-- 3 -->
+            <a class="works-item" onclick="document.getElementById('dialog3').showModal();">
+              <div class="works-img">
+                <img src="https://pbs.twimg.com/media/F5ksYvebYAALfun?format=jpg&name=4096x4096" alt="" />
+              </div>
+              <p class="works-name">タイトル</p>
+              <p class="works-info">サブタイトル</p>
             </a>
-            <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Banner Design</p>
-            </a>
-            <a class="works-item" href="works-template.html">
-              <div class="works-img"><img src="img/works-dummy-thumb.jpg" alt="" /></div>
-              <p class="works-name">作品名が入る</p>
-              <p class="works-info">Banner Design</p>
-            </a>
+            <dialog class="nes-dialog" id="dialog3">
+              <form method="dialog">
+                <p class="title">タイトル</p>
+                <div class="nes-container with-title is-lefted">
+                  <p class="title">サブタイトル</p>
+                  <div class="dialog-img-wrapper">
+                    <img src="https://pbs.twimg.com/media/F5ksYvebYAALfun?format=jpg&name=4096x4096" alt="" />
+                  </div>
+                </div>
+                <menu class="dialog-menu">
+                  <a class="nes-btn" href="リンク" target="_blank">リンクを開く</a>
+                  <button class="nes-btn">閉じる</button>
+                </menu>
+              </form>
+            </dialog>
           </div>
         </div>
       </section>
@@ -172,7 +221,7 @@
           <h2 class="title">ABOUT</h2>
           <div class="profile">
             <p class="profile-img">
-              <img src="img/profile.jpg" alt="">
+              <img src="https://pbs.twimg.com/profile_images/1647598783264600065/LSYzTGY9_400x400.jpg" alt="">
             </p>
             <div class="profile-body">
               <p>
@@ -192,7 +241,7 @@
         <div class="container">
           <h2 class="title">CONTACT</h2>
           <p class="lead">
-            Please contact us via social media or email for inquiries.
+            お問い合わせはメールかSNSからお願いします。
           </p>
           <div class="contact-list">
             <a href="https://twitter.com/leaveofabsence1"><i class="contact-item nes-icon twitter is-large"></i></a>
@@ -203,13 +252,11 @@
           </div>
         </div>
       </section>
-
-      <div class="copyright">&copy;KANADE ISHIDA</div>
     </main>
 
     <!-- footer -->
     <footer class="footer">
-      <div class="copyright">&copy;KANADE ISHIDA</div>
+      <div class="copyright">&copy;KANADE ISHIDA 2023</div>
     </footer>
     <!-- /footer -->
 

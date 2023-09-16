@@ -13,7 +13,8 @@ a {
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 240px;
+  object-fit: cover;
   vertical-align: bottom;
   border-style: none;
 }
@@ -49,6 +50,10 @@ img {
   padding: 0 40px;
 }
 
+.works-list .nes-container {
+  width: 50%;
+}
+
 /*--------------------------------
  見出し
 ---------------------------------*/
@@ -76,7 +81,7 @@ img {
   top: 0;
   z-index: 1;
   width: 100%;
-  background-color: #fff;
+  background-color: #333;
   box-shadow: 0 5px 10px -6px rgba(0,0,0,.1);
 }
 
@@ -96,7 +101,7 @@ img {
 }
 
 .header-logo a {
-  color: #333;
+  color: #D7D7D7;
 }
 
 .gnav-list {
@@ -195,8 +200,10 @@ img {
   margin-right: 0;
 }
 
-.works-img img {
-  border: 1px solid #e6e6e6;
+.works-img {
+  background-color: #222529;
+  display: flex;
+  justify-content: center;
 }
 
 .works-name {
@@ -257,7 +264,6 @@ img {
   margin: 0 auto;
 }
 .profile-img {
-  width: 20%;
   margin-right: 30px;
   border-radius: 50%;
 }
@@ -275,6 +281,39 @@ img {
 
 .profile-body p:not(:last-child) {
   margin-bottom: 30px;
+}
+
+/*--------------------------------
+ dialog
+---------------------------------*/
+.nes-dialog {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  overflow-y: hidden;
+}
+
+.dialog-img-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+.dialog-menu {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: right;
+}
+
+.dialog-menu > a, .dialog-menu > button {
+  margin: 0 0 0 2rem;
+}
+
+.nes-dialog-container-wrapper {
+  display: flex;
+}
+
+.nes-dialog-container-wrapper > div {
+  margin: 0.5rem 0.5rem;
 }
 
 /*--------------------------------
@@ -384,6 +423,24 @@ img {
     font-size: 14px;
   }
 
+  .nes-dialog-container-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nes-dialog {
+    width: 100%;
+  }
+
+  .dialog-menu {
+    display: flow;
+  }
+
+  .works-list .nes-container {
+    /* background: blue; */
+    width: 100%;
+  }
+
   .pc-only {
     display: none;
   }
@@ -471,6 +528,7 @@ img {
   }
 
   .works-list {
+    display: block;
     justify-content: space-between;
   }
 
