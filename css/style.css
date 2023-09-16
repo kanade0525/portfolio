@@ -19,7 +19,33 @@ img {
   border-style: none;
 }
 
+.is-ruby {
+  color: #9F2616;
+}
 
+.is-html {
+  color: #D45D3C;
+}
+
+.is-javascript {
+  color: #F3E155;
+}
+
+.is-excel {
+  color: #40744F;
+}
+
+.is-linux {
+  color: #333;
+}
+
+.is-sql {
+  color: #436374;
+}
+
+.is-aws {
+  color: #F1A13E;
+}
 
 .pc-only {
   display: block;
@@ -252,6 +278,10 @@ img {
 .skill-text {
   font-size: 14px;
   line-height: 1.8;
+}
+
+.nes-progress .ruby {
+  background: red;
 }
 
 /*--------------------------------
@@ -567,9 +597,11 @@ img {
     display: block;
   }
   .profile-img {
-    width: 150px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
   }
 
   .profile-body p {
