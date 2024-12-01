@@ -1,3 +1,3 @@
 # portfolio
 
-[https://kishida-bg.github.io/portfolio/](https://kanade0525.github.io/portfolio/)
+[here is my portfolio](https://kanade0525.github.io/portfolio/)
