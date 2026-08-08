@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta property='og:type' content='website'>
   <meta property='og:title' content='WebエンジニアKANADE ISHIDA ポートフォリオ'>
-  <meta property='og:url' content='URLが入る'>
+  <meta property='og:url' content='https://kanade0525.github.io/portfolio/'>
   <meta property='og:description' content='KANADE ISHIDAのポートフォリオサイトです。'>
-  <meta property="og:image" content="https://pbs.twimg.com/profile_images/1647598783264600065/LSYzTGY9_400x400.jpg">
+  <meta property="og:image" content="https://kanade0525.github.io/portfolio/img/mv.webp">
   <meta name="description" content="KANADE ISHIDAのポートフォリオサイトです" />
   <title>KANADE ISHIDA ポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,9 +16,9 @@
   <link href="css/ress.css" media="all" rel="stylesheet" type="text/css" />
   <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="img/favicon.ico" />
-  <link rel=”canonical” href="https://pbs.twimg.com/profile_images/1647598783264600065/LSYzTGY9_400x400.jpg" />
+  <link rel="canonical" href="https://kanade0525.github.io/portfolio/" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -48,29 +48,16 @@
       <div class="mv">
         <div class="mv-container">
           <p class="title-image">
-            <img src="https://pbs.twimg.com/media/F6IRt3PbYAASKuh?format=jpg&name=medium" alt="">
+            <img src="img/mv.webp" alt="ノートパソコンをさわっているネコ" />
           </p>
           <p class="mv-title">KANADE ISHIDA</p>
-          <!-- <p class="mv-subtitle">PORTFOLIO</p> -->
-          <p class="mv-text">
+          <div class="mv-text">
             <div class="nes-container with-title is-lefted">
               <p class="title">かなで</p>
               <p>HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
               <p>よかったらみていってください。</p>
             </div>
-            <br>
-            <!-- <div class="nes-container with-title">
-              <label>
-                <input type="radio" class="nes-radio" name="answer" checked />
-                <span>YES</span>
-              </label>
-              
-              <label>
-                <input type="radio" class="nes-radio" name="answer" />
-                <span>NO</span>
-              </label>
-            </div> -->
-          </p>
+          </div>
         </div>
       </div>
       <!-- /mv -->
@@ -79,93 +66,8 @@
       <section class="works section" id="works">
         <div class="container">
           <h2 class="title nes-text is-primary">WORKS</h2>
-          <div class="works-list">
-            <!-- 1 -->
-            <a class="works-item" onclick="document.getElementById('dialog1').showModal();">
-              <div class="works-img">
-                <img src="img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_427079_b5edcb10-2f1c-66fc-3b7a-2151047d7460.avif" alt="" />
-              </div>
-              <p class="works-name">スプラトゥーン3のスケジュールジョウホウを定期的にLINEで通知できるようにした</p>
-              <p class="works-info">AWS Lambda × Ruby × LINE messaging API</p>
-            </a>
-            <dialog class="nes-dialog" id="dialog1">
-              <form method="dialog">
-                <p class="title">スプラトゥーン3のスケジュールジョウホウを定期的にLINEで通知できるようにした</p>
-                <div class="nes-dialog-container-wrapper">
-                  <div class="nes-container with-title is-lefted">
-                    <p class="title">AWS Lambda × Ruby × LINE messaging API</p>
-                    <div class="dialog-img-wrapper">
-                      <img src="img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_427079_b5edcb10-2f1c-66fc-3b7a-2151047d7460.avif" alt="" />
-                    </div>
-                  </div>
-                  <div class="nes-container">
-                    スプラトゥーンのオープンマッチのスケジュールがLINEで通知来たらベンリだなと思い作成しました。サーバーレスで実行できるテガルさからAWS Lambdaをサイヨウしました。
-                  </div>
-                </div>
-                <menu class="dialog-menu">
-                  <a class="nes-btn" href="https://qiita.com/a16111k/items/1d156db0656559cdb27a" target="_blank">リンクを開く</a>
-                  <button class="nes-btn">閉じる</button>
-                </menu>
-              </form>
-            </dialog>
-            <!-- 2 -->
-            <a class="works-item" onclick="document.getElementById('dialog2').showModal();">
-              <div class="works-img">
-                <img src="https://pbs.twimg.com/media/F5oa__4bUAA5yru?format=jpg&name=large" alt="" />
-              </div>
-              <p class="works-name">ワリカンデンタクアプリ-SPLIBILLOR-</p>
-              <p class="works-info">(HTML/CSS × Javascript × firebase)在学中にドク学で作成</p>
-            </a>
-            <dialog class="nes-dialog" id="dialog2">
-              <form method="dialog">
-                <p class="title">ワリカンデンタクアプリ-SPLIBILLOR-</p>
-                <div class="nes-dialog-container-wrapper">
-                  <div class="nes-container with-title is-lefted">
-                    <p class="title">在学中にドク学で作成</p>
-                    <div class="dialog-img-wrapper">
-                      <img src="https://pbs.twimg.com/media/F5oa__4bUAA5yru?format=jpg&name=large" alt="" />
-                    </div>
-                  </div>
-                  <div class="nes-container">
-                    大学在学中にHTML, CSS, Javascriptのベンキョウのために作成しました。作りはとてもシンプルで金ガク、人数、タン位(100円タン位、10円タン位など)を入れるとワリりカンの計サンをしてくれます。タンなるデンタクとのチガいとしてはおツリりをサン出する点です。ノみのセキの時、「この人あまりのんで無いな」「この人全然食べていないな」という人におツりをあげてしまおうといったコンセプトで作りました。
-                  </div>
-                </div>
-
-                <menu class="dialog-menu">
-                  <a class="nes-btn" onclick="window.open('https://splibillo.firebaseapp.com/', 'hello', 'width=414,height=896')">リンクを開く</a>
-                  <button class="nes-btn">閉じる</button>
-                </menu>
-              </form>
-            </dialog>
-            <!-- 3 -->
-            <a class="works-item" onclick="document.getElementById('dialog3').showModal();">
-              <div class="works-img">
-                <img src="https://pbs.twimg.com/media/F5ksYvebYAALfun?format=jpg&name=4096x4096" alt="" />
-              </div>
-              <p class="works-name">プログラミング初学者を補助するタイピングゲームの開発</p>
-              <p class="works-info">2020 年度レイタク大学ジョウホウ系ソツロン発表会　ニュウショウ</p>
-            </a>
-            <dialog class="nes-dialog" id="dialog3">
-              <form method="dialog">
-                <p class="title">プログラミング初学者を補助するタイピングゲームの開発</p>
-                <div class="nes-dialog-container-wrapper">
-                  <div class="nes-container with-title is-lefted">
-                    <p class="title">2020 年度レイタク大学ジョウホウ系ソツロン発表会　ニュウショウ</p>
-                    <div class="dialog-img-wrapper">
-                      <img src="https://pbs.twimg.com/media/F5ksYvebYAALfun?format=jpg&name=4096x4096" alt="" />
-                    </div>
-                  </div>
-                  <div class="nes-container">
-                    今日では、キーボード入力にナレるためのタイピングソフトがたくさんあります。でも、プログラミングでよく使われるタン語やトクシュ文字をレンシュウできるタイピングゲームで、「ス司打」ほど有名なものはまだありません。そこで、私たちはプログラミング初心者がトクシュ文字の入力にナヤことなくスキルを向上させられるようなタイピングゲームを作ってヒョウカしました。
-                  </div>
-                </div>
-                <menu class="dialog-menu">
-                  <a class="nes-btn" href="http://www.cs.reitaku-u.ac.jp/msemi/grad-presen/2021/ronbun/n22.pdf" target="_blank">リンクを開く</a>
-                  <button class="nes-btn">閉じる</button>
-                </menu>
-              </form>
-            </dialog>
-          </div>
+          <!-- 中身は js/works-data.js から js/render.js が組み立てる -->
+          <div class="works-list" id="works-list"></div>
         </div>
       </section>
       <!-- /works -->
@@ -174,75 +76,8 @@
       <section class="skill section" id="skill">
         <div class="container">
           <h2 class="title nes-text is-success">SKILL</h2>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-ruby">Ruby(Rails)</h2>
-                <progress class="nes-progress" value="80" max="100"></progress>
-                <p class="skill-text">
-                  ドク学の期間も合わせると3〜4年ほど使っています。現在最も多く使用する機会が多い言語の一つです。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-javascript">JavaScript</h2>
-                <progress class="nes-progress" value="70" max="100"></progress>
-                <p class="skill-text">
-                  ドク学の期間も合わせると3~4年ほど使っています。Vue.jsやcoffee scriptなどのフレームワークの他にもカクチョウ機能やGASを作成するのに使っています。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-html">HTML5/CSS3</h2>
-                <progress class="nes-progress" value="70" max="100"></progress>
-                <p class="skill-text">
-                  在学中のインターンシップでサワっていたこともあり調べながらであれば自走できます。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-excel">Excel</h2>
-                <progress class="nes-progress" value="60" max="100"></progress>
-                <p class="skill-text">
-                  キ本的な関数に加え、業ムコウリツ化のためのVBAマクロを作成したりしています。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-linux">Linux</h2>
-                <progress class="nes-progress" value="60" max="100"></progress>
-                <p class="skill-text">
-                  キ本的なソウサは一通り行えます。他にもshell scriptやcronを作成し業ムをコウリツ化しています。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-sql">SQL</h2>
-                <progress class="nes-progress" value="80" max="100"></progress>
-                <p class="skill-text">
-                  キ本的なソウサは一通り行えます。取トクできないデータは無い（はず）です。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name is-aws">AWS</h2>
-                <progress class="nes-progress" value="40" max="100"></progress>
-                <p class="skill-text">
-                  まだまだベンキョウ中ですが、カンタンなWordPressサイトやLambdaに利用しています。</p>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-body">
-                <h2 class="skill-name">English</h2>
-                <progress class="nes-progress" value="80" max="100"></progress>
-                <p class="skill-text">
-                  大学入学当初は英語教員になりたいと思っていたため力を入れてガクシュウしていました。<br>
-                  ・エイケン ジュン1キュウ<br>
-                  ・TOEIC 775点
-                </p>
-              </div>
-            </div>
-          </div>
+          <!-- 中身は js/skills-data.js から js/render.js が組み立てる -->
+          <div class="skill-list" id="skill-list"></div>
         </div>
       </section>
       <!-- /skill -->
@@ -253,16 +88,16 @@
           <h2 class="title nes-text is-warning">ABOUT</h2>
           <div class="profile">
             <p class="profile-img">
-              <img src="https://pbs.twimg.com/profile_images/1647598783264600065/LSYzTGY9_400x400.jpg" alt="">
+              <img src="img/profile.webp" alt="海辺に立っている石田かなで" />
             </p>
             <div class="profile-body">
               <p>
                 英語の教員になるために外国語大学に入学し、ソツ業後は英語教員になるかと思いきや在学中にプログラミングにネッチュウしてしまい、IT業界に進むことを決心しました。
                 ネッ中したイキオいで大学を1年休学し、ベンチャーキ業でインターンをしていました。HTML,CSS, RubyやJavaScriptなどのキホンを学ぶことができました。
               </p>
-              <p>  
+              <p>
                 フク学し大学4年生をむかえるもジュギョウが4タンイしかのこっていなかったため、自分のやりたいことと別の会社でのプログラミングインターンに時間をフルベットしソツギョウしました。
-                インターンでのゴエンからシンソツで今の会社に入社し現在に至ります(3年目)。
+                インターンでのゴエンからシンソツで今の会社に入社し現在に至ります(6年目)。
               </p>
               <p>
                 【ショウライのテンボウ】<br>
@@ -283,8 +118,8 @@
             最後までみていただきありがとうございました！お問い合わせはメールかSNSからおネガいします。
           </p>
           <div class="contact-list">
-            <a href="https://twitter.com/leaveofabsence1"><i class="contact-item nes-icon twitter is-large"></i></a>
-            <a href="https://github.com/kanade0525"><i class="contact-item nes-icon github is-large"></i></a>
+            <a href="https://twitter.com/leaveofabsence1" aria-label="X (Twitter)"><i class="contact-item nes-icon twitter is-large"></i></a>
+            <a href="https://github.com/kanade0525" aria-label="GitHub"><i class="contact-item nes-icon github is-large"></i></a>
           </div>
           <div class="contact-list">
             <span class="contact-item">a16111k@gmail.com</span>
@@ -293,14 +128,64 @@
       </section>
     </main>
 
+    <!-- worksのダイアログ置き場。カードのクリックで開く -->
+    <div id="works-dialogs"></div>
+
     <!-- footer -->
     <footer class="footer">
-      <div class="copyright">&copy;KANADE ISHIDA 2023</div>
+      <div class="copyright">&copy;KANADE ISHIDA 2026</div>
     </footer>
     <!-- /footer -->
 
   </div>
+
+  <!--
+    ここから下はrender.jsが複製して使う雛形。
+    そのままでは表示されないので、見た目を変えたいときはこの中を直す。
+  -->
+  <template id="tpl-works-card">
+    <button type="button" class="works-item">
+      <span class="works-img"><img alt="" loading="lazy" /></span>
+      <span class="works-name"></span>
+      <span class="works-info"></span>
+      <span class="works-tags"></span>
+    </button>
+  </template>
+
+  <template id="tpl-works-dialog">
+    <dialog class="nes-dialog">
+      <form method="dialog">
+        <p class="title dialog-title"></p>
+        <div class="nes-dialog-container-wrapper">
+          <div class="nes-container with-title is-lefted">
+            <p class="title dialog-subtitle"></p>
+            <div class="dialog-img-wrapper"><img alt="" /></div>
+          </div>
+          <div class="nes-container">
+            <p class="dialog-meta"></p>
+            <p class="dialog-text"></p>
+          </div>
+        </div>
+        <menu class="dialog-menu"></menu>
+      </form>
+    </dialog>
+  </template>
+
+  <template id="tpl-skill">
+    <div class="skill-item">
+      <div class="skill-body">
+        <h2 class="skill-name"></h2>
+        <progress class="nes-progress" value="0" max="100"></progress>
+        <p class="skill-text"></p>
+        <ul class="skill-notes"></ul>
+      </div>
+    </div>
+  </template>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type='text/javascript' src="js/script.js"></script>
+  <script src="js/works-data.js"></script>
+  <script src="js/skills-data.js"></script>
+  <script src="js/render.js"></script>
 </body>
 </html>

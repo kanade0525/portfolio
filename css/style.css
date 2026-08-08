@@ -276,6 +276,14 @@ img {
   object-fit: cover;
 }
 
+/* カードの中身はbuttonに入れるためspanで組んである */
+.works-img,
+.works-name,
+.works-info,
+.works-tags {
+  display: block;
+}
+
 .works-name {
   font-size: 12px;
   font-weight: bold;
@@ -285,6 +293,13 @@ img {
 .works-info {
   font-size: 10px;
   margin-top: 5px;
+}
+
+.works-tags {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 5px;
+  color: #666;
 }
 
 /*--------------------------------
@@ -324,8 +339,12 @@ img {
   line-height: 1.8;
 }
 
-.nes-progress .ruby {
-  background: red;
+.skill-notes {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 6px;
+  padding-left: 1.2em;
+  list-style: disc;
 }
 
 /*--------------------------------
@@ -381,6 +400,14 @@ img {
 .dialog-img-wrapper img {
   width: 100%;
   height: auto;
+}
+
+/* 作った時期と使った技術 */
+.dialog-meta {
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #666;
 }
 
 .dialog-menu {
