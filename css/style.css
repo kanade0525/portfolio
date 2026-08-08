@@ -212,9 +212,10 @@ img {
   padding: 0 40px;
 }
 
+/* ドット絵なので、にじませずにドットのまま出す。
+   画像の実寸(336x238)がそのまま表示サイズになる */
 .title-image img {
-  height: 240px;
-  object-fit: cover;
+  image-rendering: pixelated;
 }
 
 .mv-title {
