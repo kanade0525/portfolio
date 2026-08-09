@@ -247,23 +247,30 @@ img {
   gap: 40px 1.58730%;
 }
 
-/* カードはbutton要素。ブラウザ既定の見た目を打ち消してカードとして見せる */
+/* カードはbutton要素。ブラウザ既定の見た目を打ち消し、
+   サイト全体の太い黒枠に合わせた枠をつける */
 .works-item {
   display: block;
   width: 100%;
   padding: 0;
-  transition: opacity .3s;
+  transition: transform .15s, box-shadow .15s;
   text-align: left;
   color: #333;
-  border: 0;
-  background: none;
+  border: 4px solid #212529;
+  background: #fff;
   font: inherit;
   letter-spacing: inherit;
   cursor: pointer;
 }
 
 .works-item:hover {
-  opacity: .9;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #212529;
+}
+
+.works-body {
+  display: block;
+  padding: 12px 14px 14px;
 }
 
 .works-img {
@@ -286,21 +293,24 @@ img {
 }
 
 .works-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
-  margin-top: 8px;
+  line-height: 1.5;
+  /* カタカナの途中で改行されると読みにくいので、対応ブラウザでは文節で折る */
+  word-break: auto-phrase;
 }
 
 .works-info {
-  font-size: 10px;
-  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 6px;
 }
 
 .works-tags {
   font-size: 10px;
   line-height: 1.6;
-  margin-top: 5px;
-  color: #666;
+  margin-top: 8px;
+  color: #6b6b6b;
 }
 
 /*--------------------------------
@@ -385,9 +395,17 @@ img {
 ---------------------------------*/
 .nes-dialog {
   width: 80%;
-  height: 80%;
+  max-width: 1040px;
+  max-height: 86vh;
   margin: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
+}
+
+/* 背後のworks一覧が透けると散らかって見えるので暗幕を敷く。
+   nes.cssが同じセレクタで0.3を当てており、あちらが後に読み込まれるため
+   要素名を足して詳細度を上げている */
+dialog.nes-dialog::backdrop {
+  background-color: rgba(18, 20, 24, .74);
 }
 
 .dialog-img-wrapper {
@@ -403,12 +421,14 @@ img {
   height: auto;
 }
 
-/* 作った時期と使った技術 */
+/* 作った時期と使った技術。本文と区別がつくよう下に区切りを引く */
 .dialog-meta {
   font-size: 11px;
-  line-height: 1.7;
-  margin-bottom: 12px;
-  color: #666;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px dotted #d8d8d8;
+  color: #6b6b6b;
 }
 
 .dialog-menu {
@@ -421,8 +441,10 @@ img {
   margin: 0 0 0 2rem;
 }
 
+/* 左(画像)と右(説明)の枠の高さを揃える */
 .nes-dialog-container-wrapper {
   display: flex;
+  align-items: stretch;
 }
 
 .nes-dialog-container-wrapper > div {

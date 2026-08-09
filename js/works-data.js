@@ -39,7 +39,7 @@ window.WORKS = [
   {
     id: 'kaidan-video-generator',
     title: 'カイダン動画を自動生成してトウコウするパイプライン',
-    subtitle: 'Python × VOICEVOX × Gemini × FFmpeg',
+    subtitle: 'カイダンを集めてYouTubeに出すまでを自動化',
     period: '2026年',
     tags: ['Python', 'NiceGUI', 'VOICEVOX', 'Gemini API', 'FFmpeg', 'Docker'],
     image: 'img/works/kaidan-video-generator.webp',
@@ -70,7 +70,7 @@ window.WORKS = [
   {
     id: 'roguelike-game',
     title: 'Katabasis - 不思議のダンジョン風ローグライク',
-    subtitle: 'Nuxt 3 × Phaser 3 のターン制ダンジョンタンサク',
+    subtitle: '入るたびに形の変わるダンジョンをタンサクする',
     period: '2026年',
     tags: ['Nuxt 3', 'TypeScript', 'Phaser 3', 'Pinia', 'rot.js'],
     image: 'img/works/roguelike-game.webp',
@@ -102,7 +102,7 @@ window.WORKS = [
   {
     id: 'splatoon-linebot',
     title: 'スプラトゥーン3のスケジュールジョウホウを定期的にLINEで通知できるようにした',
-    subtitle: 'AWS Lambda × Ruby × LINE Messaging API',
+    subtitle: 'オープンマッチの予定を毎日LINEに送る',
     period: '2023年',
     tags: ['AWS Lambda', 'Ruby', 'LINE Messaging API', 'EventBridge'],
     image: 'img/works/splatoon-linebot.webp',

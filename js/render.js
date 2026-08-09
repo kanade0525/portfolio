@@ -67,9 +67,11 @@
       card.querySelector('.works-name').textContent = work.title;
       card.querySelector('.works-info').textContent = work.subtitle;
 
+      // カードに全部並べると行が増えて高さが揃わないので、先頭だけ出す。
+      // 残りはダイアログのdialog-metaに出る
       var tagsEl = card.querySelector('.works-tags');
       if (work.tags && work.tags.length) {
-        tagsEl.textContent = work.tags.join(' / ');
+        tagsEl.textContent = work.tags.slice(0, 4).join(' / ');
       } else {
         tagsEl.parentNode.removeChild(tagsEl);
       }
