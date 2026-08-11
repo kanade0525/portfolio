@@ -380,12 +380,14 @@ img {
   right: 40px;
 }
 
+/* 原作のメッセージ窓と同じく、下は横いっぱいに伸ばす。
+   左右の余白は上の2つと同じ40pxにして端をそろえる */
 .dq-window.mv-window.is-bottom {
+  right: 40px;
   bottom: 40px;
-  left: 50%;
+  left: 40px;
+  width: auto;
   min-width: 0;
-  width: min(680px, calc(100% - 80px));
-  transform: translateX(-50%);
 }
 
 /* ドット絵なので、にじませずにドットのまま出す。
