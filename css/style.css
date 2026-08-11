@@ -469,8 +469,7 @@ img {
    説明やタグの行数が違っても枠の下端が揃うよう、
    縦に伸ばして余りは説明側で吸収する */
 .works-item {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -487,6 +486,13 @@ img {
 .works-item:hover {
   transform: translate(-2px, -2px);
   box-shadow: 4px 4px 0 var(--line);
+}
+
+/* buttonの中に1枚はさんだ箱。ここで縦に積む */
+.works-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .works-body {

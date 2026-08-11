@@ -184,12 +184,18 @@
     そのままでは表示されないので、見た目を変えたいときはこの中を直す。
   -->
   <template id="tpl-works-card">
+    <!--
+      buttonを直接flexにするとSafariで中身の並びが崩れるため、
+      内側にspanを1枚はさんで、そちらを縦並びの箱にしている。
+    -->
     <button type="button" class="works-item">
-      <span class="works-img"><img alt="" loading="lazy" /></span>
-      <span class="works-body">
-        <span class="works-name"></span>
-        <span class="works-info"></span>
-        <span class="works-tags"></span>
+      <span class="works-inner">
+        <span class="works-img"><img alt="" loading="lazy" /></span>
+        <span class="works-body">
+          <span class="works-name"></span>
+          <span class="works-info"></span>
+          <span class="works-tags"></span>
+        </span>
       </span>
     </button>
   </template>
