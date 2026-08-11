@@ -17,6 +17,7 @@
     repo:    { label: 'コードを見る',   className: 'nes-btn' },
     article: { label: '記事を読む',     className: 'nes-btn is-success' },
     video:   { label: 'ドウガを見る',   className: 'nes-btn is-error' },
+    store:   { label: 'ストアで見る',   className: 'nes-btn is-primary' },
     npm:     { label: 'npm',            className: 'nes-btn is-warning' },
     paper:   { label: 'ロンブンを見る', className: 'nes-btn is-success' }
   };

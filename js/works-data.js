@@ -49,6 +49,7 @@ window.WORKS = [
       'FFmpegでの動画合成、YouTubeへのトウコウまでを一気に自動化するシステムです。' +
       '長尺とショート動画の2系トウを同じパイプラインの上で動かしています。',
     links: [
+      { type: 'video', url: 'https://www.youtube.com/channel/UC53lt_Wv9_tw9i_X5Nl964g' },
       { type: 'repo', url: 'https://github.com/kanade0525/kaidan-video-generator' }
     ]
   },
@@ -65,7 +66,9 @@ window.WORKS = [
       '一ランと地図でまとめて表示し、その画面をURLでそのまま共有できます。' +
       'のこり時間を色分けして自動で更新するので「あと何分いられるか」がすぐわかります。' +
       '関東の6事業者に対応しています。',
-    links: []
+    links: [
+      { type: 'demo', url: 'https://minnano-shuden.com/' }
+    ]
   },
   {
     id: 'roguelike-game',
@@ -80,7 +83,26 @@ window.WORKS = [
       'ゲームのルールを持つ部分とPhaserでの表示を分けて、' +
       'ゲームの中身だけを取り出してテストできる形にしています。',
     links: [
+      { type: 'demo', url: 'https://main.dwvswzjen7o0t.amplifyapp.com/' },
       { type: 'repo', url: 'https://github.com/kanade0525/roguelike-game' }
+    ]
+  },
+  {
+    id: 'izakaya-tetris',
+    title: 'イザカヤブロックオとし',
+    subtitle: 'ノみ食いするたびにブロックがオちてくる',
+    period: '2026年',
+    tags: ['Nuxt 3', 'TypeScript', 'Vue', 'Amplify'],
+    image: 'img/works/izakaya-tetris.webp',
+    imageAlt: '色とりどりのブロックでうまったバン面',
+    description:
+      'ゲームオーバーになったバン面から始めます。イザカヤで一品食べるたび、一パイノむたびに' +
+      'ストックが1つたまり、ストックを使うとブロックが1つオちてきます。' +
+      'いちばん下の行をそろえたらクリアです。YouTubeで見かけたアソび方を、そのままアプリにしました。',
+    links: [
+      { type: 'demo', url: 'https://main.d3d78wsrha6lcy.amplifyapp.com/' },
+      { type: 'video', url: 'https://youtu.be/9S2_bQ4ICKI' },
+      { type: 'repo', url: 'https://github.com/kanade0525/izakaya-tetris' }
     ]
   },
   {
@@ -96,6 +118,7 @@ window.WORKS = [
       '読み解くのがメンドウなCron式を、その場でたしかめられます。' +
       '表示中の部分だけを調べる作りにして、うごきがおそくならないようにしています。',
     links: [
+      { type: 'store', url: 'https://chromewebstore.google.com/detail/jieopjdgnkkcioocfkhegoekflngmjnd' },
       { type: 'repo', url: 'https://github.com/kanade0525/cron-translator-extension' }
     ]
   },
