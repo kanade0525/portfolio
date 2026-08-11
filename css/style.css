@@ -238,6 +238,30 @@ img {
   line-height: 1.8;
 }
 
+/* 日づけ・時こく・天気を出す、ドラクエのウィンドウ風の枠 */
+.mv-status {
+  margin-top: 24px;
+}
+
+.status-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.status-list dt {
+  white-space: nowrap;
+}
+
+.status-list dd {
+  margin: 0;
+  /* 数字が動いても幅が揺れないように */
+  font-variant-numeric: tabular-nums;
+}
+
 /*--------------------------------
  Works
 ---------------------------------*/
