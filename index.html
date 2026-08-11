@@ -57,33 +57,47 @@
 
     <main class="content">
 
-      <!-- mv -->
+      <!--
+        mv
+        原作の戦とう画面にならって、窓を左上・右上・下に散らしている。
+        せまい画面ではこの順に縦へ積む。
+      -->
       <div class="mv">
+        <div class="dq-window mv-window is-topleft">
+          <p class="dq-window-title">かなで</p>
+          <dl class="status-list">
+            <dt>しごと</dt>
+            <dd>Webエンジニア</dd>
+            <dt>けいけん</dt>
+            <dd>6ねんめ</dd>
+            <dt>とくい</dt>
+            <dd>Ruby / Nuxt 3</dd>
+          </dl>
+        </div>
+
+        <!-- 日づけ・時こく・天気は js/status.js が入れる -->
+        <div class="dq-window mv-window is-topright">
+          <p class="dq-window-title">きょうの ようす</p>
+          <dl class="status-list">
+            <dt>ひづけ</dt>
+            <dd id="status-date">----/--/--</dd>
+            <dt>じかん</dt>
+            <dd id="status-time">--:--:--</dd>
+            <dt>てんき</dt>
+            <dd id="status-weather">しらべています</dd>
+          </dl>
+        </div>
+
         <div class="mv-container">
           <p class="title-image">
             <img src="img/mv.webp" alt="石田かなで" />
           </p>
           <p class="mv-title">KANADE ISHIDA</p>
-          <div class="mv-windows">
-            <div class="dq-window">
-              <p class="dq-window-title">かなで</p>
-              <p class="dq-line">HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
-              <p class="dq-line">よかったらみていってください。</p>
-            </div>
+        </div>
 
-            <!-- 日づけ・時こく・天気は js/status.js が入れる -->
-            <div class="dq-window">
-              <p class="dq-window-title">きょうの ようす</p>
-              <dl class="status-list">
-                <dt>ひづけ</dt>
-                <dd id="status-date">----/--/--</dd>
-                <dt>じかん</dt>
-                <dd id="status-time">--:--:--</dd>
-                <dt>てんき</dt>
-                <dd id="status-weather">しらべています</dd>
-              </dl>
-            </div>
-          </div>
+        <div class="dq-window mv-window is-bottom">
+          <p class="dq-line">HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
+          <p class="dq-line">よかったらみていってください。</p>
         </div>
       </div>
       <!-- /mv -->

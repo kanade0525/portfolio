@@ -348,16 +348,44 @@ img {
 /*--------------------------------
  メインビジュアル
 ---------------------------------*/
+/* 原作の戦とう画面のように、窓を四すみに置く。
+   窓は position: absolute で散らし、真ん中の絵と名前だけが
+   通常の流れに乗っている */
 .mv {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  min-height: 85vh;
+  padding: 90px 40px 150px;
   text-align: center;
 }
 
 .mv-container {
   padding: 0 40px;
+}
+
+.dq-window.mv-window {
+  position: absolute;
+  z-index: 1;
+}
+
+.dq-window.mv-window.is-topleft {
+  top: 40px;
+  left: 40px;
+}
+
+.dq-window.mv-window.is-topright {
+  top: 40px;
+  right: 40px;
+}
+
+.dq-window.mv-window.is-bottom {
+  bottom: 40px;
+  left: 50%;
+  min-width: 0;
+  width: min(680px, calc(100% - 80px));
+  transform: translateX(-50%);
 }
 
 /* ドット絵なので、にじませずにドットのまま出す。
@@ -421,17 +449,6 @@ img {
 
 .dq-line {
   line-height: 1.9;
-}
-
-/* 原作のように、窓はいくつか並べる。
-   幅がある間は横に、狭くなったら縦に積む */
-.mv-windows {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 34px 28px;
-  margin-top: 26px;
 }
 
 .status-list {
@@ -885,6 +902,67 @@ dialog.nes-dialog::backdrop {
 
   .works-info {
     margin-top: 3px;
+  }
+
+  /* せまい画面では窓を散らさず、上から順に積む。
+     中央そろえのままだと、中身が入りきらないときに上へはみ出して
+     絵がヘッダーの下に潜るので、上そろえにする */
+  .mv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 40px 20px 50px;
+  }
+
+  .mv-container {
+    order: -1;
+    padding: 0 0 30px;
+  }
+
+  /* staticにすると、枠に重なる見出しの位置の基準が外れてしまうので
+     relativeのままにして、四すみの指定だけを解く */
+  .dq-window.mv-window,
+  .dq-window.mv-window.is-topleft,
+  .dq-window.mv-window.is-topright,
+  .dq-window.mv-window.is-bottom {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 34px;
+    transform: none;
+  }
+
+  /* ヘッダーは1行に収める。折り返すと背が伸びて、
+     固定ぶんの余白(wrapperのpadding-top)と合わなくなる */
+  .header .container {
+    padding: 12px 14px;
+  }
+
+  .header-logo {
+    font-size: 11px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  .gnav-item a {
+    font-size: 9px;
+  }
+
+  .gnav-item:not(:last-child) {
+    margin-right: 7px;
+  }
+
+  .theme-toggle {
+    margin-left: 8px;
+    padding: 3px 4px;
+    font-size: 8px;
+    border-width: 1px;
   }
 
   .works-list {
