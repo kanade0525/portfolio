@@ -1,14 +1,90 @@
+/*--------------------------------
+ いろ
+
+ 明るい方を既定値として定義し、暗い方は data-theme="dark" で
+ 上書きする。切り替えは js/theme.js。初回はダークで始まる。
+---------------------------------*/
+:root {
+  color-scheme: light;
+
+  --bg: #fff;             /* 地の色 */
+  --bg-alt: #f7f7f7;      /* 1つおきのセクション */
+  --text: #333;           /* 本文 */
+  --text-weak: #6b6b6b;   /* 添え書き */
+  --line: #212529;        /* 枠線 */
+  --rule: #d8d8d8;        /* 区切りの点線 */
+  --card-bg: #fff;        /* カードの地 */
+  --img-bg: #222529;      /* 画像の下じき */
+  --header-bg: #333;
+  --header-text: #D7D7D7;
+  --link: #1ca9e3;
+  --shadow: rgba(0,0,0,.1);
+  --window-bg: #fff;      /* ドラクエ風ウィンドウ */
+  --window-fg: #333;
+  --window-line: #212529;
+
+  /* スキルの色。白地でも黒地でもコントラスト比3:1以上になる値 */
+  --c-ruby: #9F2616;
+  --c-html: #D45D3C;
+  --c-javascript: #A88A00;
+  --c-typescript: #3178C6;
+  --c-vue: #35895F;
+  --c-python: #3776AB;
+  --c-excel: #40744F;
+  --c-linux: #333;
+  --c-sql: #436374;
+  --c-aws: #C77700;
+  --c-docker: #1B7FCC;
+  --c-ai: #6B4FBB;
+  --c-english: #7B5EA7;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #14141b;
+  --bg-alt: #1b1b24;
+  --text: #e9e9ef;
+  --text-weak: #a2a2b0;
+  --line: #e9e9ef;
+  --rule: #3d3d4a;
+  --card-bg: #1f1f2a;
+  --img-bg: #0d0d13;
+  --header-bg: #0d0d13;
+  --header-text: #e9e9ef;
+  --link: #5cc6f2;
+  --shadow: rgba(0,0,0,.5);
+  --window-bg: #000;      /* 原作どおりの真っ黒 */
+  --window-fg: #fff;
+  --window-line: #fff;
+
+  --c-ruby: #ef7a67;
+  --c-html: #f0967c;
+  --c-javascript: #d7bb2e;
+  --c-typescript: #6cb3f0;
+  --c-vue: #58c08d;
+  --c-python: #6fb2e8;
+  --c-excel: #6cb583;
+  --c-linux: #c9c9d6;
+  --c-sql: #8fb5c9;
+  --c-aws: #f0a63e;
+  --c-docker: #58b3f2;
+  --c-ai: #a690e8;
+  --c-english: #b79ce0;
+}
+
 body {
   font-family: "Montserrat","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
   font-size: 15px;
   letter-spacing: .05em;
-  color: #333;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 a {
   transition: opacity .3s;
   text-decoration: none;
-  color: #1ca9e3;
+  color: var(--link);
 }
 
 img {
@@ -24,55 +100,127 @@ img {
  (見出しは太字の大きな文字なのでWCAG AAの基準は3:1)
 ---------------------------------*/
 .is-ruby {
-  color: #9F2616;
+  color: var(--c-ruby);
 }
 
 .is-html {
-  color: #D45D3C;
+  color: var(--c-html);
 }
 
 .is-javascript {
-  color: #A88A00;
+  color: var(--c-javascript);
 }
 
 .is-typescript {
-  color: #3178C6;
+  color: var(--c-typescript);
 }
 
 .is-vue {
-  color: #35895F;
+  color: var(--c-vue);
 }
 
 .is-python {
-  color: #3776AB;
+  color: var(--c-python);
 }
 
 .is-excel {
-  color: #40744F;
+  color: var(--c-excel);
 }
 
 .is-linux {
-  color: #333;
+  color: var(--c-linux);
 }
 
 .is-sql {
-  color: #436374;
+  color: var(--c-sql);
 }
 
 .is-aws {
-  color: #C77700;
+  color: var(--c-aws);
 }
 
 .is-docker {
-  color: #1B7FCC;
+  color: var(--c-docker);
 }
 
 .is-ai {
-  color: #6B4FBB;
+  color: var(--c-ai);
 }
 
 .is-english {
-  color: #7B5EA7;
+  color: var(--c-english);
+}
+
+/*--------------------------------
+ 暗いときのnes.cssの調整
+
+ nes.cssは明るい地に黒い枠を描く前提なので、暗いときは
+ 枠と地の色を入れ替える。ボタンとバーの枠だけはSVGで
+ 描かれているため、同じ形の明るいSVGに差し替える。
+---------------------------------*/
+[data-theme="dark"] .nes-container,
+[data-theme="dark"] .nes-dialog {
+  color: var(--text);
+  border-color: var(--line);
+  background-color: var(--card-bg);
+}
+
+/* 枠に重なる見出しはnes.cssが白で塗っている。
+   暗いときはカードの地と同じ色にしないと文字が消える */
+[data-theme="dark"] .nes-container.with-title > .title,
+[data-theme="dark"] .nes-container.is-centered > .title {
+  color: var(--text);
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .nes-btn,
+[data-theme="dark"] .nes-progress {
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="5" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 h1 v1 h-1 z M1 2 h1 v1 h-1 z M3 2 h1 v1 h-1 z M2 3 h1 v1 h-1 z" fill="rgb(233,233,239)" /></svg>');
+}
+
+[data-theme="dark"] .nes-btn {
+  color: var(--text);
+  background-color: var(--card-bg);
+}
+
+/* バーの中身はnes.cssの既定が黒なので、暗い地では見えなくなる。
+   伸びている部分を明るく、まだの部分を暗くして入れ替える */
+[data-theme="dark"] .nes-progress {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .nes-progress::-webkit-progress-bar {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .nes-progress::-webkit-progress-value {
+  background-color: var(--text);
+}
+
+[data-theme="dark"] .nes-progress::-moz-progress-bar {
+  background-color: var(--text);
+}
+
+/*--------------------------------
+ あかるさの切り替えボタン
+---------------------------------*/
+.theme-toggle {
+  margin-left: 24px;
+  padding: 5px 10px;
+  transition: opacity .3s;
+  font: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  color: var(--header-text);
+  border: 2px solid var(--header-text);
+  background: none;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  opacity: .75;
 }
 
 .pc-only {
@@ -95,7 +243,7 @@ img {
 }
 
 .section:nth-of-type(odd) {
-  background-color: #f7f7f7;
+  background-color: var(--bg-alt);
 }
 
 .container {
@@ -120,7 +268,7 @@ img {
   margin-bottom: 40px;
   text-align: center;
   letter-spacing: .05em;
-  color: #333;
+  color: var(--text);
 }
 
 .lead {
@@ -137,8 +285,8 @@ img {
   top: 0;
   z-index: 1;
   width: 100%;
-  background-color: #333;
-  box-shadow: 0 5px 10px -6px rgba(0,0,0,.1);
+  background-color: var(--header-bg);
+  box-shadow: 0 5px 10px -6px var(--shadow);
 }
 
 .header .container {
@@ -157,7 +305,7 @@ img {
 }
 
 .header-logo a {
-  color: #D7D7D7;
+  color: var(--header-text);
 }
 
 .gnav-list {
@@ -178,7 +326,7 @@ img {
   padding: 5px 0;
   transition: .3s;
   letter-spacing: .05em;
-  color: #333;
+  color: var(--header-text);
 }
 .gnav-item a:after {
   position: absolute;
@@ -190,7 +338,7 @@ img {
   transition: .3s;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #333;
+  background-color: var(--header-bg);
 }
 
 /* .gnav-item a:hover:after {
@@ -241,32 +389,49 @@ img {
 /*--------------------------------
  ドラクエ風のウィンドウ
 
- 黒地に白の角ばった二重枠。見出しは上の枠線に重ねて、
- その部分だけ黒で塗りつぶして枠を切っているように見せる。
+ 角ばった1本線の枠。原作の枠は二重ではない。
+ 見出しは上の枠線に重ねて、その部分だけ地の色で塗りつぶし、
+ 枠を切り抜いているように見せる。
+
+ くらいテーマでは黒地に白枠、あかるいテーマでは白地に黒枠。
+ どちらでも地から浮かないようにしている。
 ---------------------------------*/
 .dq-window {
   position: relative;
   display: inline-block;
-  min-width: 260px;
-  padding: 22px 28px 18px;
+  min-width: 320px;
+  padding: 26px 32px 22px;
   text-align: left;
-  color: #fff;
-  border: 3px solid #fff;
-  background-color: #000;
-  /* 外側にもう1本、間を空けて白線を回す */
-  box-shadow: 0 0 0 3px #000, 0 0 0 6px #fff;
+  color: var(--window-fg);
+  border: 4px solid var(--window-line);
+  background-color: var(--window-bg);
 }
 
 .dq-window-title {
   position: absolute;
-  top: -.9em;
+  top: -.95em;
   left: 50%;
-  padding: 0 .8em;
+  padding: 0 .9em;
   transform: translateX(-50%);
   font-size: 14px;
   line-height: 1;
   white-space: nowrap;
-  background-color: #000;
+  background-color: var(--window-bg);
+}
+
+.dq-line {
+  line-height: 1.9;
+}
+
+/* 原作のように、窓はいくつか並べる。
+   幅がある間は横に、狭くなったら縦に積む */
+.mv-windows {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 34px 28px;
+  margin-top: 26px;
 }
 
 .status-list {
@@ -287,12 +452,6 @@ img {
   white-space: nowrap;
   /* 秒が動いても幅が揺れないように */
   font-variant-numeric: tabular-nums;
-}
-
-/* 外側の白線ぶん、まわりに余白を取る */
-.mv-status {
-  margin-top: 34px;
-  padding-bottom: 6px;
 }
 
 /*--------------------------------
@@ -318,9 +477,9 @@ img {
   padding: 0;
   transition: transform .15s, box-shadow .15s;
   text-align: left;
-  color: #333;
-  border: 4px solid #212529;
-  background: #fff;
+  color: var(--text);
+  border: 4px solid var(--line);
+  background: var(--card-bg);
   font: inherit;
   letter-spacing: inherit;
   cursor: pointer;
@@ -328,7 +487,7 @@ img {
 
 .works-item:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #212529;
+  box-shadow: 4px 4px 0 var(--line);
 }
 
 .works-body {
@@ -342,7 +501,7 @@ img {
 
 .works-img {
   aspect-ratio: 16 / 9;
-  background-color: #222529;
+  background-color: var(--img-bg);
 }
 
 .works-img img {
@@ -377,7 +536,7 @@ img {
   font-size: 10px;
   line-height: 1.6;
   margin-top: 8px;
-  color: #6b6b6b;
+  color: var(--text-weak);
 }
 
 /*--------------------------------
@@ -494,8 +653,8 @@ dialog.nes-dialog::backdrop {
   line-height: 1.8;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 3px dotted #d8d8d8;
-  color: #6b6b6b;
+  border-bottom: 3px dotted var(--rule);
+  color: var(--text-weak);
 }
 
 .dialog-menu {
@@ -540,7 +699,7 @@ dialog.nes-dialog::backdrop {
   padding: 10px;
   cursor: pointer;
   text-align: center;
-  background-color: #4c4c4c;
+  background-color: var(--header-bg);
 }
 
 .page-top .material-icons-outlined {
@@ -553,7 +712,7 @@ dialog.nes-dialog::backdrop {
 ---------------------------------*/
 .footer {
   padding: 30px;
-  background-color: #333;
+  background-color: var(--header-bg);
 }
 
 .copyright {
@@ -605,7 +764,7 @@ dialog.nes-dialog::backdrop {
   height: 100%;
   content: "";
   border-radius: 3px;
-  background-color: #333;
+  background-color: var(--header-bg);
 }
 
 .article-body p {

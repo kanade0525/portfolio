@@ -23,7 +23,7 @@ const FONT_PATH = join(
 );
 
 /** チェック対象。存在しないものは黙って読み飛ばす */
-const TARGETS = ['index.html', 'js/works-data.js', 'js/skills-data.js', 'js/status.js'];
+const TARGETS = ['index.html', 'js/works-data.js', 'js/skills-data.js', 'js/status.js', 'js/theme.js'];
 
 /* ------------------------------------------------------------------ *
  * OTFのcmapテーブルから収録コードポイントを読み出す
@@ -115,7 +115,13 @@ function readFormat12(view, sub) {
 const blank = (s) => s.replace(/[^\n]/g, ' ');
 
 function stripHtmlComments(src) {
-  return src.replace(/<!--[\s\S]*?-->/g, blank);
+  const withoutComments = src.replace(/<!--[\s\S]*?-->/g, blank);
+  // HTMLに直接書いたスクリプトの中身はJSとして扱う。
+  // そうしないと // で始まる行のコメントが検出対象に残ってしまう
+  return withoutComments.replace(
+    /(<script\b[^>]*>)([\s\S]*?)(<\/script>)/gi,
+    (_, open, body, close) => open + stripJsComments(body) + close
+  );
 }
 
 /**

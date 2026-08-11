@@ -14,11 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
   <link href="css/ress.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="img/favicon.ico" />
   <link rel="canonical" href="https://kanade0525.github.io/portfolio/" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link href="https://unpkg.com/nes.css@2.3.0/css/nes.css" rel="stylesheet" />
+  <!-- nes.cssが body に色を直接当てているので、こちらを後に読ませて上書きする -->
+  <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
+  <script>
+    // 描き始める前にテーマを決める。あとから当てると一瞬ちらつくため。
+    // 何も選ばれていなければ暗い方で始める。
+    (function () {
+      var t = 'dark';
+      try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 
 <body>
@@ -38,6 +48,9 @@
             <li class="gnav-item"><a class="nes-text is-error" href="#contact">CONTACT</a></li>
           </ul>
         </nav>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+          <span id="theme-toggle-label">あかるくする</span>
+        </button>
       </div>
     </header>
     <!-- /header -->
@@ -51,16 +64,14 @@
             <img src="img/mv.webp" alt="石田かなで" />
           </p>
           <p class="mv-title">KANADE ISHIDA</p>
-          <div class="mv-text">
-            <div class="nes-container with-title is-lefted">
-              <p class="title">かなで</p>
-              <p>HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
-              <p>よかったらみていってください。</p>
+          <div class="mv-windows">
+            <div class="dq-window">
+              <p class="dq-window-title">かなで</p>
+              <p class="dq-line">HELLO WORLD! 私のポートフォリオサイトへようこそ</p>
+              <p class="dq-line">よかったらみていってください。</p>
             </div>
-          </div>
 
-          <!-- 中身は js/status.js が入れる -->
-          <div class="mv-status">
+            <!-- 日づけ・時こく・天気は js/status.js が入れる -->
             <div class="dq-window">
               <p class="dq-window-title">きょうの ようす</p>
               <dl class="status-list">
@@ -205,5 +216,6 @@
   <script src="js/skills-data.js"></script>
   <script src="js/render.js"></script>
   <script src="js/status.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>
