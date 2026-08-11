@@ -43,7 +43,7 @@ window.WORKS = [
     period: '2026年',
     tags: ['Python', 'NiceGUI', 'VOICEVOX', 'Gemini API', 'FFmpeg', 'Docker'],
     image: 'img/works/kaidan-video-generator.webp',
-    imageAlt: '夜行バスの車内をえがいたカイダン動画のサムネイル',
+    imageAlt: 'カイダン動画がならんだYouTubeチャンネルの画面',
     description:
       'ストーリーの取トクからテキスト処理、VOICEVOXでの音声合成、Geminiでの画像生成、' +
       'FFmpegでの動画合成、YouTubeへのトウコウまでを一気に自動化するシステムです。' +
