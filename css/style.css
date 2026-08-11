@@ -223,14 +223,6 @@ img {
   opacity: .75;
 }
 
-.pc-only {
-  display: block;
-}
-
-.sp-only {
-  display: none;
-}
-
 /*--------------------------------
  レイアウト
 ---------------------------------*/
@@ -403,18 +395,6 @@ img {
   margin-bottom: 5px;
   letter-spacing: .1em;
 }
-.mv-subtitle {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1;
-  margin-bottom: 40px;
-  letter-spacing: .08em;
-}
-
-.mv-text {
-  font-size: 16px;
-  line-height: 1.8;
-}
 
 /*--------------------------------
  ドラクエ風のウィンドウ
@@ -576,12 +556,6 @@ img {
   margin-bottom: 50px;
 }
 
-.skill-img {
-  width: 60px;
-  height: auto;
-  margin-right: 20px;
-}
-
 .skill-body {
   flex: 1;
 }
@@ -707,20 +681,6 @@ dialog.nes-dialog::backdrop {
   margin-right: 10px;
 }
 
-.contact-text {
-  margin-top: 10px;
-}
-/*--------------------------------
- ページトップ
----------------------------------*/
-.page-top {
-  font-weight: bold;
-  padding: 10px;
-  cursor: pointer;
-  text-align: center;
-  background-color: var(--header-bg);
-}
-
 .page-top .material-icons-outlined {
   vertical-align: bottom;
   color: #fff;
@@ -738,62 +698,6 @@ dialog.nes-dialog::backdrop {
   font-size: 10px;
   text-align: center;
   color: #797979;
-}
-
-/*--------------------------------
- 下層：Worksページ
----------------------------------*/
-.article {
-  padding: 80px 0;
-}
-
-.article-container {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.article-title {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.article-body {
-  max-width: 720px;
-  margin: 0 auto;
-  margin-bottom: 80px;
-}
-
-.article-body h3 {
-  position: relative;
-  font-size: 18px;
-  margin-bottom: 5px;
-  padding-left: 1em;
-}
-
-.article-body h3:not(:first-child) {
-  margin-top: 50px;
-}
-
-.article-body h3::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  content: "";
-  border-radius: 3px;
-  background-color: var(--header-bg);
-}
-
-.article-body p {
-  font-size: 15px;
-  line-height: 1.8;
-  margin-bottom: 30px;
-}
-
-.home-link {
-  text-align: center;
 }
 
 /*media Queries 767
@@ -818,17 +722,7 @@ dialog.nes-dialog::backdrop {
 
   .nes-dialog .nes-container {
     width: 100%;
-  }
-
-  .pc-only {
-    display: none;
-  }
-
-  .sp-only {
-    display: block;
-  }
-
-  /* 見出し */
+  }  /* 見出し */
   .title {
     font-size: 26px;
     margin-bottom: 20px;
@@ -886,18 +780,7 @@ dialog.nes-dialog::backdrop {
 
   .mv-title {
     font-size: 30px;
-  }
-  .mv-subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .mv-text {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  /* Works */
+  }  /* Works */
   .works-name {
     font-size: 12px;
   }
@@ -1020,25 +903,4 @@ dialog.nes-dialog::backdrop {
   /* フッター */
   .footer {
     padding: 20px;
-  }
-
-  /* 下層ページ */
-  .article {
-    padding: 50px 0;
-  }
-
-  .article-body h3 {
-    font-size: 16px;
-    padding-left: .8em;
-  }
-
-  .article-body h3:not(:first-child) {
-    margin-top: 30px;
-  }
-
-  .article-body p {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-}
+  }}

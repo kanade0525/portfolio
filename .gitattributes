@@ -1,0 +1,17 @@
+# 改行コードはLFに統一する。
+# 以前はstyle.cssとscript.jsだけCRLFで、編集のたびに全行が差分に
+# なっていたため。
+* text=auto eol=lf
+
+# 中身をテキストとして触られると壊れるもの
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.avif   binary
+*.gif    binary
+*.ico    binary
+*.otf    binary
+*.ttf    binary
+*.zip    binary
+*.pdf    binary
