@@ -65,8 +65,13 @@ window.SKILLS = [
     id: 'aws',
     name: 'AWS',
     colorClass: 'is-aws',
-    level: 65,
-    text: 'Lambda・SAM・EventBridge・S3をつないで、サーバーレスの小さなシステムを作って動かしています。'
+    level: 80,
+    text: '仕事ではVPCを作るところからはじめて、EC2とALBの上でサービスを動かしています。CodePipelineとCodeDeployで自動デプロイまでつなぎ、そのあとのウン用やカン視も見ています。コジンではSAMやCloudFormationを書いて、サーバーレスのものを作っています。',
+    notes: [
+      '仕事 … VPC / EC2 / ALB / CodePipeline / CodeDeploy',
+      'コジン … Lambda / API Gateway / DynamoDB / SAM / CloudFormation',
+      'そのほか … S3 / CloudFront / Route 53 / EventBridge'
+    ]
   },
   {
     id: 'docker',
