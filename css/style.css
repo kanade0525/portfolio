@@ -368,30 +368,56 @@ img {
   z-index: 1;
 }
 
-/* 左は窓を縦に2つ。中身の量で高さが変わっても、
-   まとめて置いているので位置がずれない */
-.mv-side {
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 34px;
-}
-
-.mv-side.is-left {
+/* 左はコマンドで選ばれたものを出す窓。右のコマンドと幅をそろえる */
+.dq-window.mv-window.is-topleft {
   top: 40px;
   left: 40px;
-}
-
-/* 並んだ窓は幅をそろえる。中身の量で広さが変わるとちぐはぐに見える */
-.mv-side {
   width: 400px;
 }
 
-.mv-side .dq-window {
+/* コマンドの並び。選ばれているものに ▶ が付く */
+.dq-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dq-menu-item {
+  position: relative;
+  display: block;
   width: 100%;
-  max-width: none;
+  padding: 5px 0 5px 1.7em;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: 1.6;
+  text-align: left;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dq-menu-item::before {
+  content: "▶";
+  position: absolute;
+  left: .1em;
+  opacity: 0;
+}
+
+.dq-menu-item.is-selected::before,
+.dq-menu-item:hover::before,
+.dq-menu-item:focus-visible::before {
+  opacity: 1;
+}
+
+.dq-menu-item:focus {
+  outline: none;
+}
+
+/* 枠はキーボードでたどっているときだけ出す */
+.dq-menu-item:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .dq-window.mv-window.is-topright {
@@ -850,19 +876,6 @@ dialog.nes-dialog::backdrop {
 
   /* staticにすると、枠に重なる見出しの位置の基準が外れてしまうので
      relativeのままにして、四すみの指定だけを解く */
-  .mv-side,
-  .mv-side.is-left {
-    position: static;
-    width: 100%;
-    gap: 34px;
-    margin-bottom: 34px;
-  }
-
-  .mv-side .dq-window {
-    max-width: none;
-    width: 100%;
-  }
-
   .dq-window.mv-window,
   .dq-window.mv-window.is-topleft,
   .dq-window.mv-window.is-topright,

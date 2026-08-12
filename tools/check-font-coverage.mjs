@@ -23,7 +23,7 @@ const FONT_PATH = join(
 );
 
 /** チェック対象。存在しないものは黙って読み飛ばす */
-const TARGETS = ['index.html', 'js/works-data.js', 'js/skills-data.js', 'js/status.js', 'js/theme.js'];
+const TARGETS = ['index.html', 'js/works-data.js', 'js/skills-data.js', 'js/status.js', 'js/theme.js', 'js/dq-menu.js'];
 
 /* ------------------------------------------------------------------ *
  * OTFのcmapテーブルから収録コードポイントを読み出す

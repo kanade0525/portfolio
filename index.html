@@ -63,10 +63,14 @@
         せまい画面ではこの順に縦へ積む。
       -->
       <div class="mv">
-        <!-- 左は2つ縦に並べる。中身の量で高さが変わっても崩れないよう箱でくくる -->
-        <div class="mv-side is-left">
-          <div class="dq-window">
-            <p class="dq-window-title">かなで</p>
+        <!--
+          左は、コマンドで選ばれたものを出す窓。
+          中身の入れ替えは js/dq-menu.js。
+        -->
+        <div class="dq-window mv-window is-topleft">
+          <p class="dq-window-title" id="dq-panel-title">かなで</p>
+
+          <div class="dq-panel" id="panel-status">
             <dl class="status-list">
               <dt>しごと</dt>
               <dd>Webエンジニア</dd>
@@ -77,8 +81,7 @@
             </dl>
           </div>
 
-          <div class="dq-window">
-            <p class="dq-window-title">すきなもの</p>
+          <div class="dq-panel" id="panel-likes" hidden>
             <dl class="status-list">
               <dt>おさけ</dt>
               <dd>ウイスキー</dd>
@@ -90,19 +93,34 @@
               <dd>コウリツ化</dd>
             </dl>
           </div>
+
+          <!-- 日づけ・時こく・天気は js/status.js が入れる -->
+          <div class="dq-panel" id="panel-today" hidden>
+            <dl class="status-list">
+              <dt>ひづけ</dt>
+              <dd id="status-date">----/--/--</dd>
+              <dt>じかん</dt>
+              <dd id="status-time">--:--:--</dd>
+              <dt>てんき</dt>
+              <dd id="status-weather">しらべています</dd>
+            </dl>
+          </div>
         </div>
 
-        <!-- 日づけ・時こく・天気は js/status.js が入れる -->
+        <!-- 右はコマンド。選ぶと左の窓の中身が変わる -->
         <div class="dq-window mv-window is-topright">
-          <p class="dq-window-title">きょうの ようす</p>
-          <dl class="status-list">
-            <dt>ひづけ</dt>
-            <dd id="status-date">----/--/--</dd>
-            <dt>じかん</dt>
-            <dd id="status-time">--:--:--</dd>
-            <dt>てんき</dt>
-            <dd id="status-weather">しらべています</dd>
-          </dl>
+          <p class="dq-window-title">コマンド</p>
+          <ul class="dq-menu">
+            <li>
+              <button type="button" class="dq-menu-item is-selected" data-panel="status" aria-pressed="true">つよさ</button>
+            </li>
+            <li>
+              <button type="button" class="dq-menu-item" data-panel="likes" aria-pressed="false">すきなもの</button>
+            </li>
+            <li>
+              <button type="button" class="dq-menu-item" data-panel="today" aria-pressed="false">きょうの ようす</button>
+            </li>
+          </ul>
         </div>
 
         <div class="mv-container">
@@ -257,5 +275,6 @@
   <script src="js/render.js"></script>
   <script src="js/status.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/dq-menu.js"></script>
 </body>
 </html>
