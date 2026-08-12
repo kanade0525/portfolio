@@ -384,13 +384,20 @@ img {
   left: 40px;
 }
 
+/* 並んだ窓は幅をそろえる。中身の量で広さが変わるとちぐはぐに見える */
+.mv-side {
+  width: 400px;
+}
+
 .mv-side .dq-window {
-  max-width: 420px;
+  width: 100%;
+  max-width: none;
 }
 
 .dq-window.mv-window.is-topright {
   top: 40px;
   right: 40px;
+  width: 400px;
 }
 
 /* 原作のメッセージ窓と同じく、下は横いっぱいに伸ばす。
@@ -454,10 +461,11 @@ img {
   line-height: 1.9;
 }
 
+/* 左は項目名ぶんだけ、右は残り全部。値が長くても項目名は折り返さない */
 .status-list {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 8px 28px;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 24px;
   margin: 0;
   font-size: 15px;
   line-height: 1.5;
