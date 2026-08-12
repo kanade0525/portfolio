@@ -77,8 +77,8 @@ window.SKILLS = [
     id: 'docker',
     name: 'Docker',
     colorClass: 'is-docker',
-    level: 55,
-    text: '開発カンキョウはDockerで作ることが多く、手元と同じ形でどこでも動かせるようにしています。'
+    level: 75,
+    text: '開発カンキョウはDockerで作ることが多く、手元と同じ形でどこでも動かせるようにしています。CIでのテストやビルドにも使っています。しくみのほうも人に説明できます。Qiitaに書いた解説記事は190人以上にLGTMをもらいました。'
   },
   {
     id: 'linux',
@@ -88,11 +88,18 @@ window.SKILLS = [
     text: 'キ本的なソウサは一通り行えます。shell scriptやcronを書いて業ムをコウリツ化しています。'
   },
   {
-    id: 'genai',
-    name: 'セイセイAIの活用',
-    colorClass: 'is-ai',
+    id: 'performance',
+    name: 'Performance Tuning',
+    colorClass: 'is-perf',
+    level: 70,
+    text: 'New Relicで計そくして、どこがおそいのかを見つけるところから始めます。SQLの書き直しやインデックスの追加で、自社のサービスが実さいにサクサク動くようになりました。'
+  },
+  {
+    id: 'pm',
+    name: 'Project Management',
+    colorClass: 'is-pm',
     level: 65,
-    text: 'Gemini APIを使って、画像やテキストを作るシステムを動かしています。コードを書くときもAIに手伝ってもらいながら進めるのが当たり前になりました。'
+    text: '見つもりからWBSを作り、毎日の進み具合を見るところまでやっています。一度きりではなく、今もその立場にいます。生成AIを使って見つもりやWBSを作るやり方は、Qiitaにも書きました。'
   },
   {
     id: 'excel',

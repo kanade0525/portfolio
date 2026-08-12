@@ -35,8 +35,9 @@
   --c-sql: #436374;
   --c-aws: #C77700;
   --c-docker: #1B7FCC;
-  --c-ai: #6B4FBB;
   --c-english: #7B5EA7;
+  --c-perf: #B5432E;
+  --c-pm: #2F7D77;
 }
 
 [data-theme="dark"] {
@@ -69,8 +70,9 @@
   --c-sql: #8fb5c9;
   --c-aws: #f0a63e;
   --c-docker: #58b3f2;
-  --c-ai: #a690e8;
   --c-english: #b79ce0;
+  --c-perf: #f0836a;
+  --c-pm: #5fc4bb;
 }
 
 body {
@@ -143,12 +145,16 @@ img {
   color: var(--c-docker);
 }
 
-.is-ai {
-  color: var(--c-ai);
-}
-
 .is-english {
   color: var(--c-english);
+}
+
+.is-perf {
+  color: var(--c-perf);
+}
+
+.is-pm {
+  color: var(--c-pm);
 }
 
 /*--------------------------------
