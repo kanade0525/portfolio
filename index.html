@@ -63,16 +63,33 @@
         せまい画面ではこの順に縦へ積む。
       -->
       <div class="mv">
-        <div class="dq-window mv-window is-topleft">
-          <p class="dq-window-title">かなで</p>
-          <dl class="status-list">
-            <dt>しごと</dt>
-            <dd>Webエンジニア</dd>
-            <dt>けいけん</dt>
-            <dd>6ねんめ</dd>
-            <dt>とくい</dt>
-            <dd>Ruby / Nuxt 3</dd>
-          </dl>
+        <!-- 左は2つ縦に並べる。中身の量で高さが変わっても崩れないよう箱でくくる -->
+        <div class="mv-side is-left">
+          <div class="dq-window">
+            <p class="dq-window-title">かなで</p>
+            <dl class="status-list">
+              <dt>しごと</dt>
+              <dd>Webエンジニア</dd>
+              <dt>けいけん</dt>
+              <dd>6ねんめ</dd>
+              <dt>とくい</dt>
+              <dd>Ruby / Nuxt 3</dd>
+            </dl>
+          </div>
+
+          <div class="dq-window">
+            <p class="dq-window-title">すきなもの</p>
+            <dl class="status-list">
+              <dt>おさけ</dt>
+              <dd>ウイスキー</dd>
+              <dt>ゲーム</dt>
+              <dd>スマブラ (キングクルール使い)</dd>
+              <dt>きろく</dt>
+              <dd>バイオ4 (Switch)<br />NORMAL / NEW GAME 世界16位</dd>
+              <dt>すきなこと</dt>
+              <dd>コウリツ化</dd>
+            </dl>
+          </div>
         </div>
 
         <!-- 日づけ・時こく・天気は js/status.js が入れる -->

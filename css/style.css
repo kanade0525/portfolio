@@ -368,9 +368,24 @@ img {
   z-index: 1;
 }
 
-.dq-window.mv-window.is-topleft {
+/* 左は窓を縦に2つ。中身の量で高さが変わっても、
+   まとめて置いているので位置がずれない */
+.mv-side {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 34px;
+}
+
+.mv-side.is-left {
   top: 40px;
   left: 40px;
+}
+
+.mv-side .dq-window {
+  max-width: 420px;
 }
 
 .dq-window.mv-window.is-topright {
@@ -454,9 +469,16 @@ img {
 
 .status-list dd {
   margin: 0;
-  white-space: nowrap;
   /* 秒が動いても幅が揺れないように */
   font-variant-numeric: tabular-nums;
+}
+
+/* 日づけ・時こく・天気だけは、途中で折り返すと読みにくいので1行に保つ。
+   ほかの値は長くなったら折り返してよい */
+#status-date,
+#status-time,
+#status-weather {
+  white-space: nowrap;
 }
 
 /*--------------------------------
@@ -820,6 +842,19 @@ dialog.nes-dialog::backdrop {
 
   /* staticにすると、枠に重なる見出しの位置の基準が外れてしまうので
      relativeのままにして、四すみの指定だけを解く */
+  .mv-side,
+  .mv-side.is-left {
+    position: static;
+    width: 100%;
+    gap: 34px;
+    margin-bottom: 34px;
+  }
+
+  .mv-side .dq-window {
+    max-width: none;
+    width: 100%;
+  }
+
   .dq-window.mv-window,
   .dq-window.mv-window.is-topleft,
   .dq-window.mv-window.is-topright,
