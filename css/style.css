@@ -229,6 +229,11 @@ img {
   opacity: .75;
 }
 
+/* 広い画面では文字で出す。記号は添えない */
+.theme-toggle-mark {
+  display: none;
+}
+
 /*--------------------------------
  レイアウト
 ---------------------------------*/
@@ -911,11 +916,21 @@ dialog.nes-dialog::backdrop {
     margin-right: 7px;
   }
 
+  /* せまい画面では記号だけ。文字まで出すとヘッダーからはみ出す */
   .theme-toggle {
     margin-left: 8px;
-    padding: 3px 4px;
-    font-size: 8px;
-    border-width: 1px;
+    padding: 4px 7px;
+    font-size: 14px;
+    line-height: 1;
+    border-width: 2px;
+  }
+
+  .theme-toggle-mark {
+    display: inline;
+  }
+
+  .theme-toggle-label {
+    display: none;
   }
 
   .works-list {

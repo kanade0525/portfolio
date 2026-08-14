@@ -49,7 +49,9 @@
           </ul>
         </nav>
         <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
-          <span id="theme-toggle-label">あかるくする</span>
+          <!-- せまい画面では記号だけにする。文字まで出すとヘッダーに収まらない -->
+          <span class="theme-toggle-mark" aria-hidden="true">○</span>
+          <span class="theme-toggle-label" id="theme-toggle-label">あかるくする</span>
         </button>
       </div>
     </header>

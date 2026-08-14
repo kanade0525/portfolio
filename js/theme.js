@@ -23,9 +23,17 @@
   }
 
   function apply(theme, label, button) {
+    var toDark = theme !== 'dark';
     root.setAttribute('data-theme', theme);
-    if (label) label.textContent = theme === 'dark' ? 'あかるくする' : 'くらくする';
-    if (button) button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    if (label) label.textContent = toDark ? 'くらくする' : 'あかるくする';
+    if (button) {
+      button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+      // 記号だけになるせまい画面でも、何のボタンか読み上げられるように
+      button.setAttribute('aria-label', toDark ? 'くらくする' : 'あかるくする');
+      var mark = button.querySelector('.theme-toggle-mark');
+      // ●=いまくらい / ○=いまあかるい
+      if (mark) mark.textContent = toDark ? '●' : '○';
+    }
   }
 
   function init() {
