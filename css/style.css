@@ -870,15 +870,6 @@ dialog.nes-dialog::backdrop {
     display: none;
   }
 
-  /*  メインビジュアル */
-  .mv {
-    height: 75vh;
-  }
-
-  .mv-container {
-    padding: 0 20px;
-  }
-
   .mv-title {
     font-size: 30px;
   }  /* Works */
@@ -898,6 +889,8 @@ dialog.nes-dialog::backdrop {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    /* 積んだぶんだけ伸ばす。高さを固定すると窓が下のworksに重なる */
+    height: auto;
     min-height: 0;
     padding: 40px 20px 50px;
   }
