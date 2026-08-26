@@ -4,9 +4,14 @@
   "description": "https://kanade0525.github.io/portfolio/",
   "private": true,
   "scripts": {
+    "shot": "node tools/shoot-work.mjs",
     "check:font": "node tools/check-font-coverage.mjs",
-    "test": "npm run check:font"
+    "check:site": "node tools/check-site.mjs",
+    "test": "npm run check:font && npm run check:site"
   },
   "author": "kanade0525",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "playwright-core": "^1.62.1"
+  }
 }

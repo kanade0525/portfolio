@@ -60,14 +60,20 @@ js/skills-data.js     SKILLに出すスキル         ← 増やすときはこ�
 js/render.js          templateにデータを流し込む
 js/status.js          トップの「きょうの ようす」（日づけ・時こく・天気）
 js/script.js          フォントの読み込みとスムーススクロール
-css/style.css         見た目（改行コードはCRLF。編集時は保つこと）
+css/style.css         見た目
 img/works/<id>.webp   worksのカード画像
-tools/                フォントのチェッカーとドット絵の生成スクリプト
+tools/shoot-work.mjs  サイトを開いてカード画像を撮る      npm run shot
+tools/check-site.mjs  表示が壊れていないか調べる          npm run check:site
+tools/check-font-coverage.mjs  使えない漢字を見つける     npm run check:font
 ```
 
 ---
 
 ## WORKS を増やす・直す
+
+Claude Code に「最近作ったものを足して」と言うと、
+`.claude/skills/add-work/SKILL.md` の手順（候補の洗い出し → 撮影 → 612字チェック → 検査 → 公開）
+をなぞります。自分でやるときは以下のとおりです。
 
 ### 1件増やす
 
@@ -168,6 +174,30 @@ var PLACE = { lat: 35.681, lon: 139.767 };
 
 ## 画像
 
+### サイトを開いて撮る（おすすめ）
+
+公開されている作品なら、実物を開いて撮るのが確実です。800x450での書き出しまで一息でやります。
+
+```sh
+npm run shot -- <URL> <id>
+
+# 押してから撮る（ゲームのプレイ中、ツールの結果画面など）
+npm run shot -- https://kanade0525.github.io/pixel-forge/ pixel-forge \
+  --width 1440 --upload 見本.png --click スキップ --click 64×64
+
+# スマホ向け。端末のワクに「押す前」「押したあと」の2枚をならべる
+npm run shot -- https://kanade0525.github.io/bomb-sorter/ bomb-sorter \
+  --phone --click Start --wait 6000
+```
+
+`--click` は**画面に出ている文字そのまま**です（「64×64」の×は全角）。
+そのほかのオプションは `tools/shoot-work.mjs` の先頭に書いてあります。
+
+手元でしか動かないものは、先にそのリポジトリでサーバーを起動して
+`http://localhost:8080/` のようなURLを渡します。撮り終わったらサーバーを止めてください。
+
+### 手持ちの画像を使う
+
 `img/works/<id>.webp` を上書きするだけです。ファイル名はデータの `id` と揃えてください。
 **800x450（16:9）** にすると並びが崩れません。
 
@@ -198,9 +228,23 @@ python3 tools/catdesk.py tools out.ppm && magick out.ppm -define webp:lossless=t
 ## 確認して公開する
 
 ```sh
-npm test          # 使えない漢字が混ざっていないか
-open index.html   # そのままブラウザで開いて確認できる
+npm test          # 下の2つをまとめて走らせる
+npm run check:font   # 使えない漢字が混ざっていないか
+npm run check:site   # 表示が壊れていないか（ブラウザで実際に開いて見る）
+open index.html      # そのままブラウザで開いて確認できる
 ```
+
+`check:site` が見ているもの:
+
+- WORKS / SKILL の件数が配列と合っているか（データにあるのに画面に出ていない、を見つける）
+- 画像がすべて読めているか、16:9か
+- ダイアログが開いて閉じるか、リンクが1本も欠けていないか
+- Consoleのエラーと404
+- せまい画面で、トップの窓がWORKSに重なっていないか・横にはみ出していないか
+
+**カードの枚数だけ数えて「大丈夫」と判断しないでください。**
+枚数は合っているのにトップの窓がWORKSを298px覆っていたことがあります。
+重なりは数えても分かりません。
 
 `index.html` は `file://` でも動きます（ES Modules と fetch を使っていないため）。
 確認できたら push します。
@@ -212,12 +256,15 @@ git push origin main
 ```
 
 1〜2分で https://kanade0525.github.io/portfolio/ に反映されます。
+**push した直後に見ても古いままです。**待ってから本番を見てください。
+
+```sh
+npm run check:site -- --prod
+```
 
 ---
 
 ## 残っている宿題
 
-- `img/favicon.ico` が無く、404が出ています
-- `font/` に未使用のotfが54個とmisaki系ttfが3個、2.6MBのzipが入っています（約6MB）
-- `css/style.css` に使われていないルールが残っています（`.article*` `.skill-img` など）
-- 改行コードが混在しています（`style.css` と `script.js` はCRLF、その他はLF）
+- `js/skills-data.js` の習熟度（`level`）は目安で置いたままです
+- SKILL には Vite / Playwright / Canvas まわりがまだ入っていません
