@@ -19,6 +19,65 @@
  */
 window.WORKS = [
   {
+    id: 'bomb-sorter',
+    title: 'Bomb Sorter',
+    subtitle: 'たて持ちでもヨコ持ちでもアソべるタッチアクション',
+    period: '2026年',
+    tags: ['TypeScript', 'Canvas', 'Vite', 'PWA', 'Playwright'],
+    image: 'img/works/bomb-sorter.webp',
+    imageAlt: 'タイトル画面と、ボムすけがアルき回るプレイ中の画面',
+    description:
+      'アルき回る「ボムすけ」を、同じ色のハコへユビで入れて仕分けるスマホ向けのゲームです。' +
+      'たて持ちならオヤユビのトドく下に、ヨコ持ちなら左右のハシにハコが出ます。' +
+      'どちらもミジカい方のヘンを360に固定してあるので、当たり判定もムズカしさも同じになり、' +
+      'キロクをコウヘイに比べられます。' +
+      '時間が立つほど、出てくる間かく・同時にいられる数・ドウカセンの長さ・アルくはやさの4つが変わっていきます。',
+    links: [
+      { type: 'popup', url: 'https://kanade0525.github.io/bomb-sorter/', size: { w: 414, h: 896 } },
+      { type: 'repo', url: 'https://github.com/kanade0525/bomb-sorter' }
+    ]
+  },
+  {
+    id: 'pixel-forge',
+    title: 'Pixel Forge',
+    subtitle: '写真をドットエに変えるブラウザツール',
+    period: '2026年',
+    tags: ['TypeScript', 'Vite', 'Canvas', 'Vitest'],
+    image: 'img/works/pixel-forge.webp',
+    imageAlt: '海べの写真が64x64のドットエに変かんされている画面',
+    description:
+      '自作ゲームのソ材を作るために、写真やイラストを16x16などのドットエに変えるツールです。' +
+      '色をヘらすときは、見た目のチガいがそのまま長さになるCIELABという色の空間で、' +
+      'いちばん近い色を当てています。' +
+      'ディザは、ベイヤーのコウシと、フロイド-スタインバーグのゴサカクサンの2通りを作りました。' +
+      'ゲームボーイやPICO-8などのパレットを同こんしていて、自分のパレットも読ませられます。' +
+      'すべてブラウザの中だけで動くので、画像はどこにも上がりません。',
+    links: [
+      { type: 'demo', url: 'https://kanade0525.github.io/pixel-forge/' },
+      { type: 'repo', url: 'https://github.com/kanade0525/pixel-forge' }
+    ]
+  },
+  {
+    id: 'oyayubi-dojo',
+    title: 'オヤユビシフトタイピング道場',
+    subtitle: '同時打ケンのズレをミリ秒で見せる',
+    period: '2026年',
+    tags: ['JavaScript', 'Web Audio', 'localStorage', 'CSP'],
+    image: 'img/works/oyayubi-dojo.webp',
+    imageAlt: 'お題とズレの目もり、NICOLAハイレツのキーボードがならんだレンシュウ画面',
+    description:
+      'オヤユビシフト(NICOLAハイレツ)のレンシュウサイトです。' +
+      '先にあるサイトは打った時こくを計っておらず、上手くなっているかが本人に見えませんでした。' +
+      'この道場は文字キーとオヤユビキーを押した時こくを取り、そのズレをリズムゲームのようにハンテイして返します。' +
+      'オヤユビが先か後かを必ず出すのがキモで、先すぎる人とオソい人では直し方が反対だからです。' +
+      '音でも返していて、先行なら低から高、オクれなら高から低にナります。' +
+      'いぞんパッケージは一つも使わず、キロクもこのタンマツの中だけにおいています。',
+    links: [
+      { type: 'demo', url: 'https://kanade0525.github.io/oyayubi-dojo/' },
+      { type: 'repo', url: 'https://github.com/kanade0525/oyayubi-dojo' }
+    ]
+  },
+  {
     id: 'showa-retro-css',
     title: 'ショウワレトロ.css',
     subtitle: '画像もJavaScriptも使わないCSSフレームワーク',
