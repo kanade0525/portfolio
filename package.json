@@ -7,7 +7,8 @@
     "shot": "node tools/shoot-work.mjs",
     "check:font": "node tools/check-font-coverage.mjs",
     "check:site": "node tools/check-site.mjs",
-    "test": "npm run check:font && npm run check:site"
+    "test": "npm run check:font && npm run check:site",
+    "shot:sd": "node tools/shoot-streamdeck.mjs"
   },
   "author": "kanade0525",
   "license": "ISC",
