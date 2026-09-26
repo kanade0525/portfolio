@@ -117,21 +117,60 @@ async function checkContents(browser, url, shot) {
   console.log(`WORKS ${counts.worksCards}件 / SKILL ${counts.skillItems}件`);
 
   /* --- 2. カード画像 --- */
-  const cardImgs = await page.evaluate(() =>
-    [...document.querySelectorAll('.works-img img')].map((i) => ({
-      src: i.getAttribute('src'),
-      ok: i.naturalWidth > 0,
-      w: i.naturalWidth,
-      h: i.naturalHeight,
-      alt: i.getAttribute('alt') || ''
-    }))
-  );
+  //
+  // 「読める」「16:9」だけでは、中身が真っ白でも通ってしまう。
+  // 実際に一度、撮影ツールが壊れて全カードがChromeのエラー画面になり、
+  // それが検査を素通りして公開された。中身も見る。
+  //   ・32x18に縮めた色の数とばらつき（壊れた画面は 色数5 / ばらつき2.3）
+  //   ・別の作品なのに画素が完全に同じでないか（撮影の失敗はたいてい全部同じになる）
+  // 本物の最小は 色数10 / ばらつき6.2 だったので、下に余裕を取って 8 と 4 にする。
+  const cardImgs = await page.evaluate(async () => {
+    const out = [];
+    for (const i of document.querySelectorAll('.works-img img')) {
+      const r = {
+        src: i.getAttribute('src'),
+        ok: i.naturalWidth > 0,
+        w: i.naturalWidth,
+        h: i.naturalHeight,
+        alt: i.getAttribute('alt') || '',
+        colors: null, sd: null, hash: null
+      };
+      if (r.ok) {
+        const c = document.createElement('canvas');
+        c.width = 32; c.height = 18;
+        const g = c.getContext('2d', { willReadFrequently: true });
+        g.drawImage(i, 0, 0, 32, 18);
+        const d = g.getImageData(0, 0, 32, 18).data;
+        const set = new Set();
+        let sum = 0, sq = 0, n = 0, h = 0;
+        for (let k = 0; k < d.length; k += 4) {
+          const v = (d[k] * 299 + d[k + 1] * 587 + d[k + 2] * 114) / 1000;
+          set.add((d[k] >> 4) << 8 | (d[k + 1] >> 4) << 4 | (d[k + 2] >> 4));
+          sum += v; sq += v * v; n++;
+          h = (h * 31 + d[k] + d[k + 1] * 3 + d[k + 2] * 7) >>> 0;
+        }
+        const mean = sum / n;
+        r.colors = set.size;
+        r.sd = Math.round(Math.sqrt(sq / n - mean * mean) * 10) / 10;
+        r.hash = h;
+      }
+      out.push(r);
+    }
+    return out;
+  });
 
+  const seen = new Map();
   for (const img of cardImgs) {
-    if (!img.ok) fail(`カード画像が読めません: ${img.src}`);
+    if (!img.ok) { fail(`カード画像が読めません: ${img.src}`); continue; }
     // 16:9でないと並びの高さが揃わない
-    else if (img.w * 9 !== img.h * 16) fail(`カード画像が16:9ではありません: ${img.src} (${img.w}x${img.h})`);
+    if (img.w * 9 !== img.h * 16) fail(`カード画像が16:9ではありません: ${img.src} (${img.w}x${img.h})`);
     if (!img.alt.trim()) fail(`imageAltが空です: ${img.src}`);
+    if (img.colors < 8 && img.sd < 4) {
+      fail(`カード画像がほぼ一色です。撮影に失敗していませんか: ${img.src} (色数${img.colors} / ばらつき${img.sd})`);
+    }
+    const same = seen.get(img.hash);
+    if (same) fail(`別の作品なのにカード画像が同じです: ${same} と ${img.src}`);
+    else seen.set(img.hash, img.src);
   }
 
   /* --- 3. ダイアログ --- */
