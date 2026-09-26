@@ -286,7 +286,10 @@ img {
 .header {
   position: fixed;
   top: 0;
-  z-index: 1;
+  /* MVの窓（.dq-window.mv-window）も z-index:1 なので、同じ値だと
+     DOMで後ろにある窓がヘッダーを覆ってしまう。ヘッダーは常に上に置く。
+     WORKSのダイアログは showModal() でトップレイヤーに出るため、この値の影響を受けない */
+  z-index: 10;
   width: 100%;
   background-color: var(--header-bg);
   box-shadow: 0 5px 10px -6px var(--shadow);
