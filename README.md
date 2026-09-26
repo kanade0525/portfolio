@@ -63,6 +63,7 @@ js/script.js          フォントの読み込みとスムーススクロール
 css/style.css         見た目
 img/works/<id>.webp   worksのカード画像
 tools/shoot-work.mjs  サイトを開いてカード画像を撮る      npm run shot
+tools/shoot-streamdeck.mjs  Stream Deckプラグインのカードを撮る  npm run shot:sd
 tools/check-site.mjs  表示が壊れていないか調べる          npm run check:site
 tools/check-font-coverage.mjs  使えない漢字を見つける     npm run check:font
 ```
