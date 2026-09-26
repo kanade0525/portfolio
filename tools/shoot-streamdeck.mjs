@@ -57,7 +57,7 @@ for (const [id, svgs] of Object.entries(CARDS)) {
   const page = join(TMP, `${id}.html`);
   writeFileSync(page, html);
   execFileSync(CHROME, ['--headless', '--disable-gpu', `--screenshot=${join(TMP, `${id}.png`)}`,
-    '--window-size=1600,900', '--virtual-time-budget=3000', `file://${process.cwd()}/${page}`],
+    '--window-size=1600,900', '--virtual-time-budget=3000', `file://${page}`],
     { stdio: 'ignore' });
   // カードは 800x450。shoot-work.mjs と同じく magick で webp にする
   execFileSync('magick', [join(TMP, `${id}.png`), '-resize', '800x450', '-quality', '84',
