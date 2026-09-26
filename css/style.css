@@ -75,8 +75,22 @@
   --c-pm: #5fc4bb;
 }
 
+/*--------------------------------
+ もじ
+
+ Nuあんこもち。以前は js/script.js が jQuery で <style> を足していたが、
+ (1) .otf なのに format("truetype") と書いていた
+ (2) googleapis から読む jQuery が届かないとフォントごと当たらない
+ の2つがあったので、CSSに移した。フォルダ名の日本語はURLエンコードしてある。
+---------------------------------*/
+@font-face {
+  font-family: "NuAnkoMochi";
+  src: url("../font/NuAnkoMochi-v1.0.0-20200104/Nu%E3%81%82%E3%82%93%E3%81%93%E3%82%82%E3%81%A1/NuAnkoMochi-Reg.otf") format("opentype");
+  font-display: swap;
+}
+
 body {
-  font-family: "Montserrat","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-family: "NuAnkoMochi","Montserrat","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
   font-size: 15px;
   letter-spacing: .05em;
   color: var(--text);

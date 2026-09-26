@@ -73,7 +73,10 @@
       })
       .then(function (json) {
         var cur = json && json.current;
-        if (!cur) throw new Error('こたえの形がおかしい');
+        // 欠けた値をそのまま通すと「かみなり NaNど」になるので、形を確かめる
+        if (!cur || typeof cur.weather_code !== 'number' || typeof cur.temperature_2m !== 'number') {
+          throw new Error('こたえの形がおかしい');
+        }
         el.textContent = weatherText(cur.weather_code) + '  ' + Math.round(cur.temperature_2m) + 'ど';
       })
       .catch(function () {
