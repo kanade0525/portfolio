@@ -19,6 +19,27 @@
  */
 window.WORKS = [
   {
+    id: 'github-ja-guide',
+    title: '非エンジニアのためのGitHub用語ガイド',
+    subtitle: '英語のラベルのとなりに日本語の意味をそえるChromeカクチョウ機能',
+    period: '2026年',
+    tags: ['JavaScript', 'Chrome Extension', 'Manifest V3'],
+    image: 'img/works/github-ja-guide.webp',
+    imageAlt: 'GitHubのタブに日本語の意味がそえられ、ふきだしで説明が出ている画面',
+    description:
+      'GitHubの画面に出る英語のラベルはそのままに、となりへ小さく日本語の意味をそえます。' +
+      '英語をのこすので、人に画面を見せてきくときや、英語のマニュアルと見くらべるときにこまりません。' +
+      '208語にタイオウしていて、マウスをのせるとムズカシイ言いかたをしない説明が出ます。' +
+      '用語の意味だけではたりない部分も入れました。' +
+      'Pull requestをどれくらいのまとまりで出すとよいか、ブランチやコミットが何のためにあるかといった考え方のガイドと、' +
+      'Issueを書く画面に出るイライのヒナ形です。' +
+      '本文やコードには手を出さず、ナビやボタンのラベルだけにそえる作りにしています。',
+    links: [
+      { type: 'store', url: 'https://chromewebstore.google.com/detail/dagpfahcgkhdggiolnonnmeepnldjdhi' },
+      { type: 'repo', url: 'https://github.com/kanade0525/github-ja-guide' }
+    ]
+  },
+  {
     id: 'streamdeck-combo-counter',
     title: 'Combo Counter',
     subtitle: 'キーとマウスを押した回数が、トギれずに何回つづいたかをキーに出す',
