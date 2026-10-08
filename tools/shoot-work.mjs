@@ -13,6 +13,11 @@
  *     --wait <ミリ秒>    押したあとの待ち時間(既定 2500)
  *     --width <px>       デスクトップのときの横幅(既定 1280)。高さは16:9で決まる
  *     --bg <色>          --phone のときの下じきの色(既定 #1d2130)
+ *     --locale <タグ>    ブラウザの言語(既定 ja-JP)。サイトが言語で表示を
+ *                        変えるとき、既定のままだと英語の画面を撮ってしまう
+ *     --gpu              実機のGPUで描く。WebGLのサイトに要る。
+ *                        既定のソフトウェア描画だと1コマに数秒かかり、
+ *                        ボタンが押せるようになる前に諦めてしまう
  *     --keep             切り出す前のPNGを消さずに残す
  *
  * 例:
@@ -40,7 +45,10 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * ------------------------------------------------------------------ */
 
 function parseArgs(argv) {
-  const opts = { clicks: [], wait: 2500, width: 1280, bg: '#1d2130', phone: false, keep: false };
+  // 言語を渡さないと、ヘッドレスのChromeは英語で開く。
+  // 日本語のサイトなのにボタンが「Sun」「Rain」で撮れていた
+  const opts = { clicks: [], wait: 2500, width: 1280, bg: '#1d2130',
+                 locale: 'ja-JP', gpu: false, phone: false, keep: false };
   const rest = [];
 
   for (let i = 0; i < argv.length; i++) {
@@ -50,6 +58,8 @@ function parseArgs(argv) {
     else if (a === '--click') opts.clicks.push(argv[++i]);
     else if (a === '--upload') opts.upload = argv[++i];
     else if (a === '--wait') opts.wait = Number(argv[++i]);
+    else if (a === '--locale') opts.locale = argv[++i];
+    else if (a === '--gpu') opts.gpu = true;
     else if (a === '--width') opts.width = Number(argv[++i]);
     else if (a === '--bg') opts.bg = argv[++i];
     else if (a.startsWith('--')) die(`知らないオプションです: ${a}`);
@@ -97,7 +107,9 @@ async function click(page, labels, wait) {
       ? asButton.first()
       : page.getByText(label, { exact: false }).first();
     try {
-      await target.click({ timeout: 15000 });
+      // WebGL のサイトは、シェーダを組み終わるまで覆いがかかっている。
+      // 15 秒では、押せるようになる前に諦めてしまう
+      await target.click({ timeout: 45000 });
     } catch {
       die(
         `「${label}」が押せませんでした。\n` +
@@ -109,12 +121,17 @@ async function click(page, labels, wait) {
   }
 }
 
+/** WebGL のサイトは、実機の GPU で描かないと 1 コマに数秒かかる */
+const launchArgs = (gpu) =>
+  gpu ? { args: ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist'] } : {};
+
 async function shootDesktop(opts, tmp) {
   const height = Math.round((opts.width * 9) / 16);
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(launchArgs(opts.gpu));
   const ctx = await browser.newContext({
     viewport: { width: opts.width, height },
-    deviceScaleFactor: 2
+    deviceScaleFactor: 2,
+    locale: opts.locale
   });
   const page = await ctx.newPage();
 
@@ -132,12 +149,13 @@ async function shootDesktop(opts, tmp) {
 }
 
 async function shootPhone(opts, tmp) {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(launchArgs(opts.gpu));
   const ctx = await browser.newContext({
     viewport: { width: 390, height: 844 },
     deviceScaleFactor: 2,
     isMobile: true,
-    hasTouch: true
+    hasTouch: true,
+    locale: opts.locale
   });
   const page = await ctx.newPage();
 
