@@ -799,6 +799,17 @@ dialog.nes-dialog::backdrop {
   margin-right: 10px;
 }
 
+/* 応援の二つのボタン。狭い画面で折り返したとき、上の行（Qiita）や互いに貼り付かないように間を取る */
+.contact-list--support {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.contact-list--support .contact-item { margin-right: 0; }
+
 .page-top .material-icons-outlined {
   vertical-align: bottom;
   color: #fff;
